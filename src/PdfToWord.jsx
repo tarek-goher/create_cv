@@ -5,7 +5,7 @@ import React, { useState, useRef } from 'react';
 import { Upload, Download, FileText, AlertCircle, CheckCircle, Loader, X, Home } from 'lucide-react';
 import { Document, Packer, Paragraph, TextRun, AlignmentType, HeadingLevel, ImageRun } from 'docx';
 import { saveAs } from 'file-saver';
-import './css/Word.css';
+import './css/word.css';
 
 const PdfToWord = ({ language = 'ar', onNavigateHome }) => {
   const [file, setFile] = useState(null);
