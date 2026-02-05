@@ -4,7 +4,7 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 export default defineConfig({
   // 👇 ده السطر اللي هيصلح الصفحة البيضاء
-  base: './', 
+  base: '/', 
   
   plugins: [
     react(),

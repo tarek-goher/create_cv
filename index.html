@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%232563eb%22 stroke-width=%222%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22><path d=%22M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z%22/><polyline points=%2214 2 14 8 20 8%22/></svg>" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>صانع السيرة الذاتية الاحترافي | Create CV Online</title>
+    <meta name="description" content="صمم سيرتك الذاتية (CV) مجاناً وبطريقة احترافية. قوالب عصرية تدعم نظام الـ ATS، سهلة التعديل، وتدعم اللغة العربية والإنجليزية بجودة عالية." />
+    <meta name="keywords" content="سيرة ذاتية, صانع CV, قوالب سيرة ذاتية, إنشاء CV عربي, سيرة ذاتية ATS, تحميل سيرة ذاتية PDF" />
+    <meta name="author" content="CV Maker Pro" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:title" content="صانع السيرة الذاتية الاحترافي | صمم CV جذاب في دقائق" />
+    <meta property="og:description" content="أفضل أداة لإنشاء سيرة ذاتية احترافية تدعم اللغة العربية والإنجليزية مع قوالب متوافقة مع أنظمة التوظيف ATS." />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://yourdomain.com/og-image.png" /> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+      /* إعدادات الخطوط الأساسية */
+      :root {
+        --font-arabic: 'Cairo', sans-serif;
+        --font-english: 'Roboto', sans-serif;
+      }
+
+      body {
+        /* الخط الأساسي عربي، وفي حال وجود نص إنجليزي يتم استخدام روبوتو تلقائياً */
+        font-family: 'Cairo', 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8fafc;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* تحسين ظهور الأرقام والنصوص الإنجليزية داخل المحتوى العربي */
+      [lang="en"] {
+        font-family: var(--font-english);
+      }
+
+      /* منع الوميض قبل تحميل الخطوط */
+      .fonts-loading body {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <header role="banner">
+      <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">
+        أداة إنشاء السيرة الذاتية الاحترافية مجاناً - دعم كامل للعربية والإنجليزية
+      </h1>
+    </header>
+    
+    <main id="root"></main>
+
+    <script type="module" src="./src/main.jsx"></script>
+  </body>
+</html>

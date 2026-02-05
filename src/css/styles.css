@@ -1,0 +1,3684 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800&display=swap');
+/* ==========================================
+   CSS VARIABLES FOR THEMES
+   ========================================== */
+:root[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  
+  /* التعديلات هنا 👇 */
+  --text-primary: #0f172a;   /* زي ما هو، ممتاز */
+  
+  --text-secondary: #334155; /* كان #475569 - خليناه أغمق سنة */
+  
+  --text-tertiary: #475569;  /* كان #64748b - ده كان أكبر مشكلة، دلوقتي بقى آمن */
+  
+  --accent-primary: #2563eb;  /* كان #3b82f6 - الأزرق ده أقوى وأوضح لجوجل */
+  
+  --accent-secondary: #1d4ed8; /* أغمق عشان التباين */
+  
+  --accent-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  
+  --border-color: #cbd5e1;   /* كان #e2e8f0 - خليناه أوضح شوية عشان حدود العناصر */
+  
+  /* الباقي زي ما هو */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+:root[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  
+  /* التعديلات لضمان الـ 100% Accessibility 👇 */
+  --text-primary: #f8fafc;   /* خليناه أبيض صريح وأنقى */
+  
+  --text-secondary: #e2e8f0; /* كان #cbd5e1 - خليناه أنصع شوية */
+  
+  --text-tertiary: #cbd5e1;  /* كان #94a3b8 - ده التغيير الجوهري عشان التباين */
+  
+  --accent-primary: #60a5fa;  /* الأزرق الفاتح فوق الغامق تباينه أعلى من الأزرق الغامق */
+  
+  --accent-secondary: #93c5fd;
+  
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  
+  --border-color: #475569;   /* حدود أوضح للأقسام */
+  
+  /* الباقي زي ما هو */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   GLOBAL STYLES
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', 'Cairo', sans-serif;
+  background: var(--bg-primary);
+  min-height: 100vh;
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+  font-style: normal !important;
+}
+/* في بداية الملف */
+/* تأكد إن الخطوط العربية صح */
+/* الحل الاحترافي لتوحيد الخطوط بدون ميلان */
+body, .cv-template, .cv-preview {
+    /* Roboto للإنجليزي وبعده Cairo للعربي */
+    font-family: 'Roboto', 'Cairo', sans-serif !important;
+    
+    /* نضمن إن الخط مش مايل */
+    font-style: normal !important;
+    
+    /* تحسين وضوح الحروف */
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* منع تقطيع الحروف في العربي */
+.rtl * {
+    letter-spacing: 0 !important; /* العربي مبيحبش المسافات */
+}
+
+/* تأكد من RTL */
+.rtl {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* معلومات الاتصال */
+.cv-contact,
+.minimal-contact,
+.elegant-contact,
+.creative-contact {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.app {
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+.navbar {
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--accent-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.brand-icon {
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.brand-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home-btn,
+.converter-btn,
+.theme-toggle,
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.converter-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-color: #10b981;
+  color: white;
+}
+
+.converter-btn:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.theme-toggle {
+  padding: 0.6rem;
+}
+
+.home-btn:hover,
+.theme-toggle:hover,
+.lang-toggle:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+.header {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   PROGRESS STEPS
+   ========================================== */
+.progress-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+}
+
+.step-label {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.step.active .step-label {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.step-line {
+  width: 100px;
+  height: 2px;
+  background: var(--border-color);
+  margin: 0 0.5rem;
+}
+
+/* ==========================================
+   MAIN CONTENT
+   ========================================== */
+.main-content {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ==========================================
+   TEMPLATE SELECTOR
+   ========================================== */
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.template-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.template-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.template-card:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.template-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ==========================================
+   TEMPLATE PREVIEW (Real CV Layout)
+   ========================================== */
+.template-preview-container {
+  width: 100%;
+  height: 280px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.template-preview-real {
+  width: 100%;
+  height: 100%;
+  font-size: 0.5rem;
+  color: #1e293b;
+  overflow: hidden;
+}
+
+/* Modern Preview */
+.template-preview-real.modern {
+  padding: 0.8rem;
+}
+
+.modern .prev-header {
+  text-align: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid #3b82f6;
+  margin-bottom: 0.6rem;
+}
+
+.modern .prev-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.2rem;
+}
+
+.modern .prev-job {
+  font-size: 0.7rem;
+  color: #3b82f6;
+  margin-bottom: 0.3rem;
+}
+
+.modern .prev-contact {
+  font-size: 0.45rem;
+  color: #64748b;
+}
+
+.modern .prev-section {
+  margin-bottom: 0.6rem;
+}
+
+.modern .prev-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 1px solid #3b82f6;
+  margin-bottom: 0.3rem;
+}
+
+.modern .prev-entry {
+  margin-bottom: 0.3rem;
+}
+
+.modern .prev-entry-title {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.modern .prev-entry-meta {
+  font-size: 0.5rem;
+  color: #64748b;
+}
+
+.modern .prev-skills {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.modern .prev-skills span {
+  background: #3b82f6;
+  color: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.45rem;
+}
+
+/* Professional Preview */
+.template-preview-real.professional {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  padding: 0;
+}
+
+.professional .prev-sidebar {
+  background: #1e293b;
+  color: white;
+  padding: 0.8rem 0.5rem;
+  text-align: center;
+}
+
+.professional .prev-photo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3b82f6;
+  margin: 0 auto 0.5rem;
+}
+
+.professional .prev-name-sidebar {
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.professional .prev-sidebar-section {
+  margin-bottom: 0.6rem;
+}
+
+.professional .prev-sidebar-title {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 0.3rem;
+}
+
+.professional .prev-sidebar-item {
+  font-size: 0.45rem;
+  margin-bottom: 0.2rem;
+}
+
+.professional .prev-main {
+  padding: 0.8rem;
+}
+
+.professional .prev-job-title {
+  font-size: 0.7rem;
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+/* Creative Preview */
+.template-preview-real.creative {
+  padding: 0;
+}
+
+.creative .prev-creative-header {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: white;
+}
+
+.creative .prev-creative-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+}
+
+.creative .prev-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.creative .prev-job {
+  font-size: 0.6rem;
+  opacity: 0.9;
+}
+
+.creative .prev-creative-body {
+  padding: 0.8rem;
+}
+
+.creative .prev-section {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.creative .prev-creative-icon {
+  font-size: 1rem;
+}
+
+/* Executive Preview */
+.template-preview-real.executive {
+  padding: 0;
+}
+
+.executive .prev-exec-header {
+  background: #0f172a;
+  color: white;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.executive .prev-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.executive .prev-job {
+  font-size: 0.6rem;
+  color: #3b82f6;
+}
+
+.executive .prev-exec-contact {
+  text-align: right;
+  font-size: 0.45rem;
+  color: #94a3b8;
+}
+
+/* Minimal Preview */
+.template-preview-real.minimal {
+  padding: 0.8rem;
+}
+
+.minimal .prev-minimal-header {
+  text-align: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 0.6rem;
+}
+
+.minimal .prev-name {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+  margin-bottom: 0.2rem;
+}
+
+.minimal .prev-minimal-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+
+.minimal .prev-minimal-skills {
+  font-size: 0.5rem;
+  color: #475569;
+}
+
+/* Elegant Preview */
+.template-preview-real.elegant {
+  padding: 0;
+}
+
+.elegant .prev-elegant-ornament {
+  width: 30px;
+  height: 2px;
+  background: #3b82f6;
+  margin: 0.5rem auto 0.3rem;
+}
+
+.elegant .prev-elegant-header {
+  text-align: center;
+  padding: 0.8rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.elegant .prev-elegant-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3b82f6;
+  margin: 0 auto 0.5rem;
+}
+
+.elegant .prev-name {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+}
+
+.elegant .prev-elegant-divider {
+  width: 40px;
+  height: 1px;
+  background: #3b82f6;
+  margin: 0.3rem auto;
+}
+
+/* ==========================================
+   TEMPLATE INFO
+   ========================================== */
+.template-info {
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.template-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.template-emoji {
+  font-size: 1.8rem;
+}
+
+.template-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.template-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.photo-badge {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--accent-primary);
+}
+
+.template-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.free-badge {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.select-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.select-button:hover {
+  background: var(--accent-secondary);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* ==========================================
+   CV FORM
+   ========================================== */
+.cv-form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form-section {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--accent-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.add-button:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--bg-tertiary);
+  border: 2px solid ;
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  /* border: 2px solid var(--border-color); */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ==========================================
+   PHOTO UPLOAD
+   ========================================== */
+.photo-upload-container {
+  margin-top: 0.5rem;
+}
+
+.photo-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.photo-upload-label:hover {
+  border-color: var(--accent-primary);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.photo-preview-box {
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.photo-preview-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid var(--accent-primary);
+}
+
+.remove-photo-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.remove-photo-btn:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+/* ==========================================
+   ENTRY CARDS
+   ========================================== */
+.entry-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.entry-number {
+  background: var(--accent-primary);
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.remove-button {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.remove-button:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* ==========================================
+   SKILLS
+   ========================================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.skill-item input {
+  flex: 1;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.skill-remove {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #60a5fa;
+  color: #60a5fa;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-remove:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* ==========================================
+   FORM ACTIONS
+   ========================================== */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.back-button,
+.next-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button {
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.back-button:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+}
+
+.next-button {
+  background: var(--accent-gradient);
+  border: none;
+  color: white;
+}
+
+.next-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* ==========================================
+   CV PREVIEW
+   ========================================== */
+.cv-preview-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.preview-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.print-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.print-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.cv-preview {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-xl);
+}
+
+/* ==========================================
+   CV TEMPLATES (For Print/Preview)
+   ========================================== */
+.cv-template {
+  color: #1e293b;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* Modern Template */
+.modern-header {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 3px solid #3b82f6;
+  margin-bottom: 2rem;
+}
+
+.cv-name {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.cv-title {
+  font-size: 1.3rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.cv-contact {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.cv-section {
+  margin-bottom: 2rem;
+}
+
+.cv-section .section-title {
+  font-size: 1.5rem;
+  color: #0f172a;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.summary-text {
+  color: #475569;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.experience-item,
+.education-item {
+  margin-bottom: 1.5rem;
+  page-break-inside: avoid;
+}
+
+.exp-header,
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.3rem;
+}
+
+.exp-header h4,
+.edu-header h4 {
+  color: #0f172a;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.duration,
+.year {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.company,
+.institution {
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: #475569;
+  font-size: 0.95rem;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.skill-tag {
+  background: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Professional Template */
+.professional-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #1e293b;
+  color: white;
+  padding: 2rem 1.5rem;
+  min-height: 100vh;
+}
+
+@media print {
+  .professional-layout {
+    grid-template-columns: 220px 1fr !important;
+    display: grid !important;
+  }
+
+  .sidebar {
+    padding: 0 1rem !important;
+    background: #1e293b !important;
+    min-height: auto !important;
+    page-break-after: avoid;
+  }
+
+  /* Prevent sidebar background on second page */
+  .cv-template.professional {
+    display: block !important;
+  }
+
+  .cv-template.professional .professional-layout {
+    display: block !important;
+    position: relative;
+  }
+
+  .cv-template.professional .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 220px;
+    background: #1e293b !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .cv-template.professional .main-content {
+    margin-left: 240px;
+    padding: 0 2rem !important;
+  }
+
+  .rtl .cv-template.professional .sidebar {
+    left: auto;
+    right: 0;
+  }
+
+  .rtl .cv-template.professional .main-content {
+    margin-left: 0;
+    margin-right: 240px;
+  }
+
+  .profile-photo,
+  .profile-avatar {
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 2rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .profile-name {
+    font-size: 1.2rem !important;
+  }
+
+  .profile-title {
+    font-size: 0.9rem !important;
+  }
+
+  .sidebar-title {
+    font-size: 0.95rem !important;
+  }
+
+  .contact-item,
+  .sidebar-skill {
+    font-size: 0.8rem !important;
+  }
+
+  .sidebar-section {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+.sidebar {
+  background: #1e293b;
+  color: white;
+  padding: 0 1.5rem 2rem 1.5rem;
+}
+
+.profile-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3b82f6;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 auto 1rem;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.profile-title {
+  font-size: 1rem;
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.sidebar-section {
+  margin-bottom: 2rem;
+}
+
+.sidebar-title {
+  font-size: 1.1rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contact-item {
+  font-size: 0.9rem;
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+.sidebar-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.sidebar-skill {
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.6rem;
+  border-radius: 8px;
+  border-left: 3px solid #3b82f6;
+  font-weight: 600;
+}
+
+.main-content {
+  padding: 2rem;
+}
+
+.content-section {
+  margin-bottom: 2rem;
+}
+
+.content-title {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3b82f6;
+  font-weight: 700;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+  page-break-inside: avoid;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background: #3b82f6;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  width: 2px;
+  height: calc(100% + 1rem);
+  background: #e2e8f0;
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-content h4 {
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.company-name {
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* Creative Template */
+.creative-header {
+  position: relative;
+  padding: 3rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.creative-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  transform: skewY(-3deg);
+  transform-origin: top left;
+}
+
+.creative-content {
+  position: relative;
+  z-index: 1;
+}
+
+.creative-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  margin: 0 auto 1rem;
+  display: block;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.creative-name {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  font-weight: 700;
+}
+
+.creative-title {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.creative-contact {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.creative-body {
+  padding: 0 2rem 2rem;
+}
+
+.creative-section {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  page-break-inside: avoid;
+}
+
+.creative-section-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.creative-section-content {
+  flex: 1;
+}
+
+.creative-section-content h3 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.creative-item {
+  margin-bottom: 1.5rem;
+}
+
+.creative-item h4 {
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.creative-meta {
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.creative-desc {
+  color: #475569;
+  font-size: 0.95rem;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.creative-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.creative-skill {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+/* Executive Template */
+.executive-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+  background: #0f172a;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.executive-info h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.executive-info h2 {
+  font-size: 1.1rem;
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.executive-contact {
+  text-align: right;
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.executive-contact div {
+  margin-bottom: 0.3rem;
+}
+
+.executive-section {
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.executive-section-title {
+  font-size: 1.3rem;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 3px solid #3b82f6;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.executive-summary {
+  color: #475569;
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.executive-item {
+  margin-bottom: 2rem;
+  page-break-inside: avoid;
+}
+
+.executive-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.executive-item-header h3 {
+  color: #0f172a;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.executive-duration {
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+.executive-company {
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.executive-desc {
+  color: #475569;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.executive-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.executive-edu {
+  margin-bottom: 1.5rem;
+}
+
+.executive-edu h3 {
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.executive-edu p {
+  color: #64748b;
+  font-weight: 600;
+}
+
+.executive-edu span {
+  color: #3b82f6;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.executive-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.executive-skill {
+  background: #f1f5f9;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  font-weight: 600;
+}
+
+/* Minimal Template */
+.minimal-header {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.minimal-header h1 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.minimal-title {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.minimal-contact {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.minimal-section {
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.minimal-section h2 {
+  font-size: 1rem;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.minimal-summary {
+  color: #475569;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.minimal-item {
+  margin-bottom: 1.5rem;
+  page-break-inside: avoid;
+}
+
+.minimal-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.3rem;
+}
+
+.minimal-item h3 {
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.minimal-item span {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.minimal-item p {
+  color: #64748b;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.minimal-desc {
+  color: #475569;
+  font-size: 0.9rem;
+  text-align: justify;
+  margin-top: 0.5rem;
+  line-height: 1.7;
+}
+
+.minimal-skills {
+  color: #475569;
+  line-height: 2;
+}
+
+/* Elegant Template */
+.elegant-header {
+  text-align: center;
+  padding: 3rem 2rem;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.elegant-ornament {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  margin: 0 auto 1.5rem;
+}
+
+.elegant-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #3b82f6;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.elegant-name {
+  font-size: 2.5rem;
+  color: #0f172a;
+  font-weight: 300;
+  letter-spacing: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.elegant-title {
+  font-size: 1.1rem;
+  color: #3b82f6;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.elegant-divider {
+  width: 100px;
+  height: 1px;
+  background: #3b82f6;
+  margin: 1rem auto;
+}
+
+.elegant-contact {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.elegant-section {
+  padding: 0 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.elegant-section-title {
+  font-size: 1.3rem;
+  color: #0f172a;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.elegant-section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: #3b82f6;
+  margin: 0.5rem auto 0;
+}
+
+.elegant-text {
+  color: #475569;
+  text-align: justify;
+  line-height: 1.9;
+  font-size: 0.95rem;
+}
+
+.elegant-item {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  page-break-inside: avoid;
+}
+
+.elegant-item:last-child {
+  border-bottom: none;
+}
+
+.elegant-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.elegant-item h3 {
+  color: #0f172a;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.elegant-duration {
+  color: #3b82f6;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.elegant-company {
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.elegant-desc {
+  color: #475569;
+  text-align: justify;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.elegant-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 0 2rem;
+}
+
+.elegant-edu {
+  margin-bottom: 1.5rem;
+}
+
+.elegant-edu h3 {
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.elegant-edu p {
+  color: #64748b;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.elegant-edu span {
+  color: #3b82f6;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.elegant-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.elegant-skill {
+  background: white;
+  border: 1px solid #e5e7eb;
+  color: #475569;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+@media print {
+  body {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .cv-preview {
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .cv-template {
+    page-break-after: avoid;
+  }
+
+  .cv-section,
+  .experience-item,
+  .education-item,
+  .timeline-item,
+  .creative-section,
+  .executive-item,
+  .minimal-item,
+  .elegant-item {
+    page-break-inside: avoid;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+@media (max-width: 768px) {
+  .navbar-content {
+    padding: 1rem;
+  }
+
+  .brand-text {
+    font-size: 1rem;
+  }
+
+  .brand-icon {
+    font-size: 1.5rem;
+  }
+
+  .home-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .home-btn span {
+    display: none;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .header {
+    padding: 1.5rem 1rem;
+  }
+
+  .progress-steps {
+    flex-wrap: wrap;
+  }
+
+  .step-line {
+    width: 50px;
+  }
+
+  .template-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .template-preview-container {
+    height: 240px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .professional-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    padding-bottom: 1rem;
+  }
+
+  .executive-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .executive-contact {
+    text-align: left;
+  }
+
+  .rtl .executive-contact {
+    text-align: right;
+  }
+
+  .executive-grid,
+  .elegant-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .back-button,
+  .next-button {
+    width: 100%;
+  }
+
+  .cv-preview {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-content {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .navbar-brand {
+    justify-content: center;
+  }
+
+  .navbar-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cv-preview {
+    padding: 1rem;
+  }
+}
+
+/* ==========================================
+   MODERN TEMPLATE PHOTO
+   ========================================== */
+.modern-photo {
+  width: 120px !important;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3b82f6;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+/* ==========================================
+   CREATIVE TEMPLATE - FIXED DESIGN
+   ========================================== */
+.creative-header {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0;
+}
+
+.creative-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.creative-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+.creative-info {
+  flex: 1;
+  color: white;
+}
+
+.creative-name {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.creative-title {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.creative-contact {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: rgba(255,255,255,0.95);
+  font-size: 0.9rem;
+}
+
+/* ==========================================
+   ATS OPTIMIZED TEMPLATE
+   ========================================== */
+.ats-optimized {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ats-header {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.ats-header h1 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.ats-contact-line {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: #475569;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.ats-contact-line span::after {
+  content: '|';
+  margin-left: 1rem;
+  color: #cbd5e1;
+}
+
+.ats-contact-line span:last-child::after {
+  content: '';
+}
+
+.ats-job-title {
+  font-size: 1.2rem;
+  color: #1e293b;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.ats-section {
+  margin-bottom: 1.8rem;
+  page-break-inside: avoid;
+}
+
+.ats-section-title {
+  font-size: 1.1rem;
+  color: #0f172a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.ats-skills-text {
+  color: #1e293b;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.ats-entry {
+  margin-bottom: 1.5rem;
+  page-break-inside: avoid;
+}
+
+.ats-entry-header {
+  color: #0f172a;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.ats-entry-company {
+  color: #475569;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ats-entry-desc {
+  color: #1e293b;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ==========================================
+   CORPORATE TEMPLATE
+   ========================================== */
+.corporate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-bottom: 4px solid #3b82f6;
+  margin-bottom: 2rem;
+}
+
+.corporate-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.corporate-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 3px solid #3b82f6;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.corporate-name {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+.corporate-job-title {
+  font-size: 1.2rem;
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.corporate-header-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.corporate-contact-item {
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.corporate-body {
+  padding: 0 2rem 2rem;
+}
+
+.corporate-section {
+  margin-bottom: 2rem;
+  page-break-inside: avoid;
+}
+
+.corporate-section-title {
+  font-size: 1.3rem;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.corporate-divider {
+  width: 60px;
+  height: 3px;
+  background: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.corporate-text {
+  color: #475569;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.corporate-two-column {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+}
+
+.corporate-entry {
+  margin-bottom: 1.8rem;
+  page-break-inside: avoid;
+}
+
+.corporate-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.3rem;
+}
+
+.corporate-entry h4 {
+  color: #0f172a;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.corporate-date {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.corporate-company {
+  color: #64748b;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.corporate-desc {
+  color: #475569;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.corporate-edu {
+  margin-bottom: 1.5rem;
+}
+
+.corporate-edu h4 {
+  color: #0f172a;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.corporate-edu p {
+  color: #64748b;
+  margin-bottom: 0.3rem;
+}
+
+.corporate-year {
+  color: #3b82f6;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.corporate-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.corporate-skill-item {
+  background: #f1f5f9;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border-left: 3px solid #3b82f6;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* ==========================================
+   TECHNICAL TEMPLATE - Redesigned
+   ========================================== */
+.technical-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: white;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 5px solid #3b82f6;
+}
+
+.technical-name-section {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.technical-name-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.technical-title-bar {
+  background: transparent;
+  padding: 0;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.technical-job-title {
+  color: #38bdf8;
+  font-weight: 600;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+}
+
+.technical-contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.technical-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.technical-label {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.technical-section {
+  padding: 0 2rem;
+  margin-bottom: 2.5rem;
+  page-break-inside: avoid;
+}
+
+.technical-section-title {
+  font-size: 1.4rem;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #3b82f6;
+}
+
+.technical-icon {
+  color: #3b82f6;
+  font-size: 1.2rem;
+}
+
+.technical-text {
+  color: #475569;
+  line-height: 1.9;
+  text-align: justify;
+  font-size: 1rem;
+}
+
+.technical-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.technical-skill-box {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-left: 4px solid #3b82f6;
+  padding: 0.8rem 1.2rem;
+  text-align: left;
+  font-weight: 600;
+  color: #1e293b;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.technical-entry {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+  page-break-inside: avoid;
+}
+
+.technical-entry:last-child {
+  border-bottom: none;
+}
+
+.technical-entry-header {
+  margin-bottom: 1rem;
+}
+
+.technical-entry h4 {
+  color: #0f172a;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.technical-company {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+
+.technical-duration {
+  color: #64748b;
+  font-weight: 600;
+  background: #f1f5f9;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.technical-desc-list {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  color: #475569;
+  line-height: 1.9;
+}
+
+.technical-desc-list li {
+  margin-bottom: 0.7rem;
+  padding-left: 0.5rem;
+}
+
+.technical-edu {
+  margin-bottom: 1.8rem;
+  page-break-inside: avoid;
+}
+
+.technical-edu-header {
+  margin-bottom: 0.5rem;
+}
+
+.technical-edu h4 {
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.technical-year {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.2rem 0.8rem;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+.technical-institution {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* ==========================================
+   TEMPLATE SELECTOR PREVIEWS - New Templates
+   ========================================== */
+.template-preview-real.ats-optimized {
+  padding: 0.8rem;
+  font-family: Arial, sans-serif;
+}
+
+.prev-ats-header {
+  text-align: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #0f172a;
+  margin-bottom: 0.6rem;
+}
+
+.prev-ats-header .prev-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+.prev-ats-contact {
+  font-size: 0.4rem;
+  color: #475569;
+  margin: 0.3rem 0;
+}
+
+.prev-ats-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #0f172a;
+  margin-bottom: 0.3rem;
+}
+
+.prev-ats-skills {
+  font-size: 0.45rem;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.template-preview-real.corporate {
+  padding: 0;
+}
+
+.prev-corporate-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-bottom: 2px solid #3b82f6;
+}
+
+.prev-corporate-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prev-corporate-contact {
+  text-align: right;
+  font-size: 0.4rem;
+  color: #475569;
+}
+
+.prev-corporate-contact div {
+  margin-bottom: 0.2rem;
+}
+
+.template-preview-real.technical {
+  padding: 0;
+}
+
+.prev-technical-header {
+  background: #0f172a;
+  color: white;
+  padding: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.prev-technical-header .prev-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.prev-technical-bar {
+  background: #3b82f6;
+  padding: 0.3rem 0.5rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.prev-technical-bar span {
+  font-size: 0.5rem;
+  font-weight: 600;
+}
+
+.prev-technical-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.4rem;
+}
+
+.prev-technical-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.prev-technical-skills {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.prev-technical-skills span {
+  background: #f1f5f9;
+  border: 1px solid #3b82f6;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.4rem;
+  font-weight: 600;
+}
+
+/* ==========================================
+   PRINT STYLES - Enhanced for proper margins
+   ========================================== */
+@media print {
+  @page {
+    margin: 2cm 1.5cm;
+    size: A4;
+  }
+
+  /* Hide browser header/footer */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    background: white;
+    margin: 0;
+    padding: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .cv-preview {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cv-template {
+    page-break-after: avoid;
+    margin: 0;
+    padding: 0;
+  }
+
+  .cv-section,
+  .experience-item,
+  .education-item,
+  .timeline-item,
+  .creative-section,
+  .executive-item,
+  .minimal-item,
+  .elegant-item,
+  .ats-section,
+  .ats-entry,
+  .corporate-section,
+  .corporate-entry,
+  .technical-section,
+  .technical-entry {
+    page-break-inside: avoid;
+  }
+
+  /* Prevent widows and orphans */
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  /* Ensure proper spacing between pages */
+  .cv-section:last-of-type {
+    margin-bottom: 0;
+  }
+
+  /* Professional template print fix - smaller sidebar */
+  .professional-layout {
+    grid-template-columns: 220px 1fr !important;
+  }
+
+  .sidebar {
+    padding: 1.5rem 1rem !important;
+  }
+
+  .profile-photo,
+  .profile-avatar {
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 2rem !important;
+  }
+
+  .profile-name {
+    font-size: 1.2rem !important;
+  }
+
+  .profile-title {
+    font-size: 0.9rem !important;
+  }
+
+  .sidebar-title {
+    font-size: 0.95rem !important;
+  }
+
+  .contact-item,
+  .sidebar-skill {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - Corporate and Technical
+   ========================================== */
+@media (max-width: 768px) {
+  .corporate-header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .corporate-header-right {
+    text-align: left;
+  }
+
+  .rtl .corporate-header-right {
+    text-align: right;
+  }
+
+  .corporate-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
+
+/* ==========================================
+   إخفاء Header & Footer في الطباعة
+   ========================================== */
+@media print {
+  @page {
+    margin: 0; /* إلغاء المساحات الافتراضية */
+    size: A4 portrait;
+  }
+  
+  /* إخفاء أي header/footer من المتصفح */
+  html {
+    margin: 0 !important;
+  }
+  
+  body {
+    margin: 1.5cm 1cm !important; /* مساحة مناسبة للطباعة */
+  }
+}
+/* ==========================================
+   تحديثات CSS لزر التحميل
+   ========================================== */
+
+.download-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.download-button:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.download-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.print-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.print-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+/* تحسين عرض الأزرار على الموبايل */
+@media (max-width: 768px) {
+  .preview-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .preview-actions > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .download-button,
+  .print-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================
+   إصلاح مشكلة Header/Footer في الطباعة
+   ========================================== */
+@media print {
+  /* إزالة header و footer */
+  @page {
+    margin: 0;
+    size: A4 portrait;
+  }
+
+  html {
+    margin: 0 !important;
+  }
+
+  body {
+    margin: 1.5cm 1cm !important;
+    padding: 0 !important;
+  }
+
+  /* إخفاء أي عناصر غير مرغوبة */
+  header, footer, nav, .no-print {
+    display: none !important;
+  }
+
+  /* ضمان ظهور الألوان */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* تحسين جودة الطباعة */
+  .cv-preview {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .cv-template {
+    page-break-after: avoid;
+  }
+}
+/* ==========================================
+   تحسينات لظهور PDF بشكل صحيح
+   ========================================== */
+
+/* ضمان ظهور الألوان والخلفيات في PDF */
+* {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+/* تحسين جودة الخطوط */
+body, .cv-template, .cv-template * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* إصلاح مشاكل الخلفيات الملونة */
+.cv-template.professional .sidebar,
+.cv-template.creative .creative-header,
+.cv-template.executive .executive-header,
+.cv-template.corporate .corporate-header,
+.cv-template.technical .technical-header {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* ضمان ظهور الصور */
+/* تنسيق صورة غلاف القالب (Template Thumbnail) */
+ img {
+  width: 100%;            /* تملأ عرض الكارد */
+  height: 300px;          /* قلل الـ 400 لـ 250 أو حسب تصميمك عشان الكارد ميبقاش ضخم */
+  object-fit: cover;      /* أهم سطر: يخلي الصورة تملا المساحة وتتقص من غير ما تتمط */
+  object-position: top;   /* يخلي الجزء العلوي من صورة القالب هو اللي باين */
+  overflow: hidden;
+  display: block;
+  border-bottom: 1px solid #eee; 
+}
+
+
+/* تحسين عرض القوالب الجانبية */
+.cv-template.professional .sidebar {
+  background-color: #1e293b !important;
+  color: white !important;
+}
+
+.cv-template.professional .sidebar * {
+  color: white !important;
+}
+
+.cv-template.professional .sidebar-title {
+  color: #3b82f6 !important;
+}
+
+/* تحسين القالب الإبداعي */
+.cv-template.creative .creative-header {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%) !important;
+  -webkit-print-color-adjust: exact !important;
+}
+
+/* تحسين القالب التنفيذي */
+.cv-template.executive .executive-header {
+  background-color: #0f172a !important;
+  color: white !important;
+}
+
+/* تحسين القالب المؤسسي */
+.cv-template.corporate .corporate-header {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+}
+
+/* تحسين القالب التقني */
+.cv-template.technical .technical-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+  color: white !important;
+}
+
+/* ضمان ظهور skill tags */
+.skill-tag,
+.creative-skill,
+.elegant-skill,
+.sidebar-skill,
+.executive-skill,
+.corporate-skill-item,
+.technical-skill-box {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* تحسين borders */
+.cv-section,
+.timeline-marker,
+.corporate-divider,
+.elegant-divider {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* إصلاح مشكلة الصور الشخصية */
+.profile-photo,
+.modern-photo,
+.creative-photo,
+.elegant-photo,
+.corporate-photo {
+  border: 3px solid #3b82f6 !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* تحسين عرض النص */
+p, span, div, h1, h2, h3, h4, h5, h6 {
+  page-break-inside: avoid;
+}
+
+/* منع تقطيع العناصر المهمة */
+.experience-item,
+.education-item,
+.timeline-item,
+.creative-section,
+.executive-item,
+.minimal-item,
+.elegant-item,
+.ats-entry,
+.corporate-entry,
+.technical-entry {
+  page-break-inside: avoid !important;
+  break-inside: avoid !important;
+}
+
+/* ==========================================
+   زر التحميل (محسّن)
+   ========================================== */
+.download-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.download-button:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.download-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #94a3b8;
+}
+
+.download-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* تحسين عرض الأزرار معاً */
+.preview-actions > div {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* ==========================================
+   إصلاح الطباعة النهائي
+   ========================================== */
+@media print {
+  @page {
+    margin: 0;
+    size: A4 portrait;
+  }
+
+  html {
+    margin: 0 !important;
+  }
+
+  body {
+    margin: 15mm 10mm !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  /* إخفاء العناصر غير المرغوبة */
+  .no-print,
+  .preview-actions,
+  .navbar,
+  header.header,
+  button,
+  .download-button,
+  .print-button,
+  .back-button {
+    display: none !important;
+  }
+
+  /* ضمان ظهور كل شيء */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* إزالة الظلال في الطباعة */
+  .cv-preview {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* تحسين عرض القوالب */
+  .cv-template {
+    page-break-after: avoid;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* إصلاح القالب الاحترافي في الطباعة */
+  .cv-template.professional .sidebar {
+    background-color: #1e293b !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .cv-template.professional .professional-layout {
+    display: grid !important;
+    grid-template-columns: 220px 1fr !important;
+  }
+}
+
+/* ==========================================
+   تحسينات الموبايل
+   ========================================== */
+@media (max-width: 768px) {
+  .preview-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .preview-actions > div {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .download-button,
+  .print-button,
+  .back-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+.skills-list {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* عمودين */
+    gap: 15px;
+    width: 100%;
+}
+
+/* ==========================================
+   إضافات CSS جديدة لأزرار التحميل المحسّنة
+   ========================================== */
+
+/* أزرار التحميل - تصميم جديد */
+.word-button {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%) !important;
+  color: white !important;
+  font-weight: bold !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.3s ease !important;
+  font-size: 1rem !important;
+}
+
+.word-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4) !important;
+}
+
+.word-button:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+.pdf-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  font-weight: bold !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.3s ease !important;
+  font-size: 1rem !important;
+}
+
+.pdf-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+}
+
+.pdf-button:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+.print-button {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%) !important;
+  color: white !important;
+  font-weight: bold !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.3s ease !important;
+  font-size: 1rem !important;
+}
+
+.print-button:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #21618c 100%) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4) !important;
+}
+
+/* تحسين عرض الأزرار على الموبايل */
+@media (max-width: 768px) {
+  .preview-actions > div {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .word-button,
+  .pdf-button,
+  .print-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================
+   تحسينات أزرار التحميل - الإصدار النهائي
+   ========================================== */
+
+/* مجموعة الأزرار */
+.download-buttons-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* الأزرار الأساسية */
+.download-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.download-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* زر Word - أخضر */
+.word-button {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.word-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.5);
+}
+
+/* زر PDF نصي (ATS) - برتقالي */
+.ats-pdf-button {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+.ats-pdf-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+}
+
+/* زر PDF تصميم - أزرق بنفسجي */
+.pdf-design-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.pdf-design-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* تأثيرات الضغط */
+.download-button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+/* ==========================================
+   تحسين عرض الأزرار على الموبايل
+   ========================================== */
+@media (max-width: 768px) {
+  .download-buttons-group {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .download-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .preview-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .back-button {
+    width: 100%;
+  }
+}
+
+/* ==========================================
+   إضافة badges للتوضيح
+   ========================================== */
+.download-button::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.download-button:hover::after {
+  opacity: 1;
+}
+
+/* ==========================================
+   تنظيف الـ Preview Actions
+   ========================================== */
+.preview-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+  transform: translateX(-3px);
+}
+
+.rtl .back-button:hover {
+  transform: translateX(3px);
+}
+
+/* ==========================================
+   OPTIMIZED CSS - Performance & Accessibility
+   ========================================== */
+
+/* ==========================================
+   1. SKIP LINK - Accessibility
+   ========================================== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #2980B9;
+  color: #ffffff;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #f39c12;
+}
+
+/* ==========================================
+   2. IMPROVED FOCUS STYLES
+   ========================================== */
+*:focus-visible {
+  outline: 3px solid #f39c12;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   3. TEMPLATE CARDS - Better Contrast
+   ========================================== */
+.template-card {
+  background: #ffffff;
+  border: 2px solid #dee2e6;
+  color: #212529; /* Contrast 16:1 ✅ */
+  height: 550px ;
+}
+
+.template-card:hover {
+  border-color: #2980B9;
+  box-shadow: 0 12px 24px rgba(41, 128, 185, 0.15);
+}
+
+.template-name {
+  color: #212529; /* Contrast 16:1 ✅ */
+}
+
+.template-description {
+  color: #495057; /* Contrast 9.73:1 ✅ */
+}
+
+/* ==========================================
+   4. BUTTONS - Better Contrast
+   ========================================== */
+.select-button {
+  background: #2980B9;
+  color: #ffffff; /* Contrast 7.21:1 ✅ */
+}
+
+.select-button:hover {
+  background: #21618C;
+}
+
+/* ==========================================
+   5. LOADING ANIMATION - Performance
+   ========================================== */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(41, 128, 185, 0.2);
+  border-top: 4px solid #2980B9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  will-change: transform;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================
+   6. IMAGE OPTIMIZATION
+   ========================================== */
+.template-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  image-rendering: crisp-edges;
+}
+
+.template-image-container {
+  aspect-ratio: 4 / 5;
+  background: #f8f9fa;
+}
+
+/* ==========================================
+   7. REDUCED MOTION
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ده هيخلي الصورة تاخد حجم الكارد بالظبط مهما كان نوع التاغ */
+.template-preview-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* عشان الصورة متبقاش ممطوطة */
+  display: block;
+}
+
+/* لو مستخدم تاغ picture */
+picture img {
+  width: 100%;
+  height: auto;
+}
+
+
+.template-image-container {
+  width: 100%;
+  /* احجز مكان الصورة بنسبة طول وعرض ثابتة قبل ما تتحمل */
+  aspect-ratio: 4 / 5; 
+  background-color: #f3f4f6; /* لون خفيف يظهر مكان الصورة وهي بتتحمل */
+  overflow: hidden;
+  border-radius: 8px;
+}

@@ -1,0 +1,1257 @@
+/* ==========================================
+   🔧 إصلاح نهائي للخطوط المائلة
+   ========================================== */
+* {
+  font-family: 'Roboto', 'Cairo', sans-serif !important;
+  font-style: normal !important;
+}
+
+body,
+.cv-template,
+.cv-preview,
+.template-card,
+.template-name,
+.template-description,
+.form-group label,
+.form-group input,
+.form-group textarea,
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, button,
+.navbar,
+.section-title,
+.cv-name,
+.cv-title,
+.company,
+.institution,
+.description {
+  font-family: 'Roboto', 'Cairo', sans-serif !important;
+  font-style: normal !important;
+}
+/* ==========================================
+   🏠 INDEX & MAIN INTERFACE STYLES
+   ملف الصفحة الرئيسية والواجهة الأساسية
+   ========================================== */
+
+/* ==========================================
+   CSS VARIABLES FOR THEMES - متغيرات الثيمات
+   ========================================== */
+:root[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #475569;
+  
+  --accent-primary: #2563eb;
+  --accent-secondary: #1d4ed8;
+  --accent-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+  
+  --border-color: #cbd5e1;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+:root[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --text-tertiary: #cbd5e1;
+  
+  --accent-primary: #60a5fa;
+  --accent-secondary: #93c5fd;
+  --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  
+  --border-color: #475569;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================
+   GLOBAL STYLES - الأنماط العامة
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', 'Cairo', sans-serif !important;
+  font-style: normal !important;
+}
+
+body {
+  font-family: 'Roboto', 'Cairo', sans-serif;
+  background: var(--bg-primary);
+  min-height: 100vh;
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+  font-style: normal !important;
+}
+
+/* تحسين وضوح الحروف */
+body, .cv-template, .cv-preview {
+  font-family: 'Roboto', 'Cairo', sans-serif !important;
+  font-style: normal !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* منع تقطيع الحروف في العربي */
+.rtl * {
+  letter-spacing: 0 !important;
+}
+
+/* تأكد من RTL */
+.rtl {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* معلومات الاتصال */
+.cv-contact,
+.minimal-contact,
+.elegant-contact,
+.creative-contact {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.app {
+  min-height: 100vh;
+  padding-bottom: 2rem;
+}
+
+/* ==========================================
+   NAVBAR - شريط التنقل
+   ========================================== */
+.navbar {
+  background: var(--bg-secondary);
+  border-bottom: 2px solid var(--accent-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.brand-icon {
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.brand-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.home-btn,
+.converter-btn,
+.theme-toggle,
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.converter-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-color: #10b981;
+  color: white;
+}
+
+.converter-btn:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+.theme-toggle {
+  padding: 0.6rem;
+}
+
+.home-btn:hover,
+.theme-toggle:hover,
+.lang-toggle:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* ==========================================
+   HEADER - رأس الصفحة
+   ========================================== */
+.header {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   PROGRESS STEPS - خطوات التقدم
+   ========================================== */
+.progress-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 2rem auto 0;
+  padding: 0 1rem;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+  background: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: white;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+}
+
+.step-label {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.step.active .step-label {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.step-line {
+  width: 100px;
+  height: 2px;
+  background: var(--border-color);
+  margin: 0 0.5rem;
+}
+
+/* ==========================================
+   MAIN CONTENT - المحتوى الرئيسي
+   ========================================== */
+.main-content {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ==========================================
+   TEMPLATE SELECTOR - اختيار القالب
+   ========================================== */
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.template-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+}
+
+.template-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.template-card:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.template-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ==========================================
+   TEMPLATE PREVIEW - معاينة القالب
+   ========================================== */
+.template-preview-container {
+  width: 100%;
+  height: 280px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.template-preview-real {
+  width: 100%;
+  height: 100%;
+  font-size: 0.5rem;
+  color: #1e293b;
+  overflow: hidden;
+}
+
+/* Modern Preview */
+.template-preview-real.modern {
+  padding: 0.8rem;
+}
+
+.modern .prev-header {
+  text-align: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid #3b82f6;
+  margin-bottom: 0.6rem;
+}
+
+.modern .prev-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.2rem;
+}
+
+.modern .prev-job {
+  font-size: 0.7rem;
+  color: #3b82f6;
+  margin-bottom: 0.3rem;
+}
+
+.modern .prev-contact {
+  font-size: 0.45rem;
+  color: #64748b;
+}
+
+.modern .prev-section {
+  margin-bottom: 0.6rem;
+}
+
+.modern .prev-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 1px solid #3b82f6;
+  margin-bottom: 0.3rem;
+}
+
+.modern .prev-entry {
+  margin-bottom: 0.3rem;
+}
+
+.modern .prev-entry-title {
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.modern .prev-entry-meta {
+  font-size: 0.5rem;
+  color: #64748b;
+}
+
+.modern .prev-skills {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.modern .prev-skills span {
+  background: #3b82f6;
+  color: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.3rem;
+  font-size: 0.45rem;
+}
+
+/* Professional Preview */
+.template-preview-real.professional {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  padding: 0;
+}
+
+.professional .prev-sidebar {
+  background: #1e293b;
+  color: white;
+  padding: 0.8rem 0.5rem;
+  text-align: center;
+}
+
+.professional .prev-photo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3b82f6;
+  margin: 0 auto 0.5rem;
+}
+
+.professional .prev-name-sidebar {
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+
+.professional .prev-sidebar-section {
+  margin-bottom: 0.6rem;
+}
+
+.professional .prev-sidebar-title {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 0.3rem;
+}
+
+.professional .prev-sidebar-item {
+  font-size: 0.45rem;
+  margin-bottom: 0.2rem;
+}
+
+.professional .prev-main {
+  padding: 0.8rem;
+}
+
+.professional .prev-job-title {
+  font-size: 0.7rem;
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+/* Creative Preview */
+.template-preview-real.creative {
+  padding: 0;
+}
+
+.creative .prev-creative-header {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: white;
+}
+
+.creative .prev-creative-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+}
+
+.creative .prev-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.creative .prev-job {
+  font-size: 0.6rem;
+  opacity: 0.9;
+}
+
+.creative .prev-creative-body {
+  padding: 0.8rem;
+}
+
+.creative .prev-section {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.creative .prev-creative-icon {
+  font-size: 1rem;
+}
+
+/* Executive Preview */
+.template-preview-real.executive {
+  padding: 0;
+}
+
+.executive .prev-exec-header {
+  background: #0f172a;
+  color: white;
+  padding: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.executive .prev-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.executive .prev-job {
+  font-size: 0.6rem;
+  color: #3b82f6;
+}
+
+.executive .prev-exec-contact {
+  text-align: right;
+  font-size: 0.45rem;
+  color: #94a3b8;
+}
+
+/* Minimal Preview */
+.template-preview-real.minimal {
+  padding: 0.8rem;
+}
+
+.minimal .prev-minimal-header {
+  text-align: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 0.6rem;
+}
+
+.minimal .prev-name {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+  margin-bottom: 0.2rem;
+}
+
+.minimal .prev-minimal-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+
+.minimal .prev-minimal-skills {
+  font-size: 0.5rem;
+  color: #475569;
+}
+
+/* Elegant Preview */
+.template-preview-real.elegant {
+  padding: 0;
+}
+
+.elegant .prev-elegant-ornament {
+  width: 30px;
+  height: 2px;
+  background: #3b82f6;
+  margin: 0.5rem auto 0.3rem;
+}
+
+.elegant .prev-elegant-header {
+  text-align: center;
+  padding: 0.8rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.elegant .prev-elegant-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3b82f6;
+  margin: 0 auto 0.5rem;
+}
+
+.elegant .prev-name {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+}
+
+.elegant .prev-elegant-divider {
+  width: 40px;
+  height: 1px;
+  background: #3b82f6;
+  margin: 0.3rem auto;
+}
+
+/* ATS Preview */
+.template-preview-real.ats-optimized {
+  padding: 0.8rem;
+  font-family: Arial, sans-serif;
+}
+
+.prev-ats-header {
+  text-align: center;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #0f172a;
+  margin-bottom: 0.6rem;
+}
+
+.prev-ats-header .prev-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+
+.prev-ats-contact {
+  font-size: 0.4rem;
+  color: #475569;
+  margin: 0.3rem 0;
+}
+
+.prev-ats-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid #0f172a;
+  margin-bottom: 0.3rem;
+}
+
+.prev-ats-skills {
+  font-size: 0.45rem;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+/* Corporate Preview */
+.template-preview-real.corporate {
+  padding: 0;
+}
+
+.prev-corporate-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-bottom: 2px solid #3b82f6;
+}
+
+.prev-corporate-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.prev-corporate-contact {
+  text-align: right;
+  font-size: 0.4rem;
+  color: #475569;
+}
+
+.prev-corporate-contact div {
+  margin-bottom: 0.2rem;
+}
+
+/* Technical Preview */
+.template-preview-real.technical {
+  padding: 0;
+}
+
+.prev-technical-header {
+  background: #0f172a;
+  color: white;
+  padding: 0.8rem;
+  margin-bottom: 0.6rem;
+}
+
+.prev-technical-header .prev-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.prev-technical-bar {
+  background: #3b82f6;
+  padding: 0.3rem 0.5rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.prev-technical-bar span {
+  font-size: 0.5rem;
+  font-weight: 600;
+}
+
+.prev-technical-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.4rem;
+}
+
+.prev-technical-title {
+  font-size: 0.6rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.prev-technical-skills {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.prev-technical-skills span {
+  background: #f1f5f9;
+  border: 1px solid #3b82f6;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.4rem;
+  font-weight: 600;
+}
+
+/* ==========================================
+   TEMPLATE INFO - معلومات القالب
+   ========================================== */
+.template-info {
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.template-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.template-emoji {
+  font-size: 1.8rem;
+}
+
+.template-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.template-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.photo-badge {
+  display: inline-block;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-primary);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--accent-primary);
+}
+
+.template-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.free-badge {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.select-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.select-button:hover {
+  background: var(--accent-secondary);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+}
+
+/* ==========================================
+   CV FORM - نموذج إدخال البيانات
+   ========================================== */
+.cv-form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form-section {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: var(--accent-primary);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
+  padding: 0.7rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.add-button:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ==========================================
+   PHOTO UPLOAD - رفع الصورة
+   ========================================== */
+.photo-upload-container {
+  margin-top: 0.5rem;
+}
+
+.photo-upload-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: 2px dashed var(--border-color);
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  gap: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.photo-upload-label:hover {
+  border-color: var(--accent-primary);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.photo-preview-box {
+  position: relative;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.photo-preview-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid var(--accent-primary);
+}
+
+.remove-photo-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+}
+
+.remove-photo-btn:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+/* ==========================================
+   ENTRY CARDS - بطاقات الإدخال
+   ========================================== */
+.entry-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.entry-number {
+  background: var(--accent-primary);
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.remove-button {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.remove-button:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* ==========================================
+   SKILLS - المهارات
+   ========================================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.skill-item input {
+  flex: 1;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.skill-remove {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #60a5fa;
+  color: #60a5fa;
+  padding: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-remove:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* ==========================================
+   FORM ACTIONS - أزرار الفورم
+   ========================================== */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.back-button,
+.next-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button {
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.back-button:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+}
+
+.next-button {
+  background: var(--accent-gradient);
+  border: none;
+  color: white;
+}
+
+.next-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+/* ==========================================
+   📱 RESPONSIVE - Index
+   ========================================== */
+@media (max-width: 768px) {
+  .navbar-content {
+    padding: 1rem;
+  }
+
+  .brand-text {
+    font-size: 1rem;
+  }
+
+  .brand-icon {
+    font-size: 1.5rem;
+  }
+
+  .home-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .home-btn span {
+    display: none;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .header {
+    padding: 1.5rem 1rem;
+  }
+
+  .progress-steps {
+    flex-wrap: wrap;
+  }
+
+  .step-line {
+    width: 50px;
+  }
+
+  .template-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .template-preview-container {
+    height: 240px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .back-button,
+  .next-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-content {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .navbar-brand {
+    justify-content: center;
+  }
+
+  .navbar-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

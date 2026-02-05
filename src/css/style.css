@@ -1,0 +1,696 @@
+/* ==========================================
+   🛠️ UTILITIES & HELPERS STYLES
+   ملف الأدوات المساعدة والطباعة والأزرار
+   ========================================== */
+
+/* ==========================================
+   CV PREVIEW - معاينة السيرة الذاتية
+   ========================================== */
+.cv-preview-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.preview-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cv-preview {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-xl);
+}
+
+/* ==========================================
+   DOWNLOAD BUTTONS - أزرار التحميل
+   ========================================== */
+
+/* مجموعة الأزرار */
+.download-buttons-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* الأزرار الأساسية */
+.download-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.download-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.download-button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+/* زر Word - أخضر */
+.word-button {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%) !important;
+  color: white !important;
+  font-weight: bold !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.3s ease !important;
+  font-size: 1rem !important;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.word-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #27ae60 0%, #229954 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.5) !important;
+}
+
+.word-button:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+/* زر PDF نصي (ATS) - برتقالي */
+.ats-pdf-button {
+  background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+}
+
+.ats-pdf-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(243, 156, 18, 0.5);
+}
+
+/* زر PDF تصميم - أزرق بنفسجي */
+.pdf-button,
+.pdf-design-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  font-weight: bold !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  transition: all 0.3s ease !important;
+  font-size: 1rem !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.pdf-button:hover:not(:disabled),
+.pdf-design-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5) !important;
+}
+
+.pdf-button:disabled,
+.pdf-design-button:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+/* زر الطباعة - أزرق فاتح */
+.print-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%) !important;
+  color: white !important;
+  font-weight: bold !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  font-size: 1rem !important;
+}
+
+.print-button:hover {
+  background: linear-gradient(135deg, #2980b9 0%, #21618c 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5) !important;
+}
+
+/* زر الرجوع */
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+  transform: translateX(-3px);
+}
+
+.rtl .back-button:hover {
+  transform: translateX(3px);
+}
+
+/* ==========================================
+   IMAGE OPTIMIZATION - تحسين الصور
+   ========================================== */
+img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: top;
+  overflow: hidden;
+  display: block;
+  border-bottom: 1px solid #eee;
+}
+
+.template-preview-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+picture img {
+  width: 100%;
+  height: auto;
+}
+
+.template-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  image-rendering: crisp-edges;
+}
+
+.template-image-container {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: #f3f4f6;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+/* ضمان ظهور الصور الشخصية */
+.profile-photo,
+.modern-photo,
+.creative-photo,
+.elegant-photo,
+.corporate-photo {
+  border: 3px solid #3b82f6 !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* ==========================================
+   PRINT STYLES - أنماط الطباعة
+   ========================================== */
+@media print {
+  /* إعدادات الصفحة */
+  @page {
+    margin: 0;
+    size: A4 portrait;
+  }
+
+  /* إخفاء header و footer من المتصفح */
+  html {
+    margin: 0 !important;
+  }
+
+  body {
+    margin: 15mm 10mm !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  /* ضمان ظهور الألوان */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  /* تحسين جودة الخطوط */
+  body, .cv-template, .cv-template * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* إخفاء العناصر غير المرغوبة */
+  .no-print,
+  .preview-actions,
+  .navbar,
+  header.header,
+  button,
+  .download-button,
+  .word-button,
+  .pdf-button,
+  .print-button,
+  .back-button,
+  .download-buttons-group {
+    display: none !important;
+  }
+
+  /* إزالة الظلال في الطباعة */
+  .cv-preview {
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* تحسين عرض القوالب */
+  .cv-template {
+    page-break-after: avoid;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* منع تقطيع العناصر المهمة */
+  .cv-section,
+  .experience-item,
+  .education-item,
+  .timeline-item,
+  .creative-section,
+  .executive-item,
+  .minimal-item,
+  .elegant-item,
+  .ats-section,
+  .ats-entry,
+  .corporate-section,
+  .corporate-entry,
+  .technical-section,
+  .technical-entry {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* منع الأرامل واليتامى */
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  /* ضمان المسافات الصحيحة بين الصفحات */
+  .cv-section:last-of-type {
+    margin-bottom: 0;
+  }
+
+  /* إصلاح مشاكل الخلفيات الملونة */
+  .cv-template.professional .sidebar,
+  .cv-template.creative .creative-header,
+  .cv-template.executive .executive-header,
+  .cv-template.corporate .corporate-header,
+  .cv-template.technical .technical-header {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* تحسين عرض القوالب الجانبية */
+  .cv-template.professional .sidebar {
+    background-color: #1e293b !important;
+    color: white !important;
+  }
+
+  .cv-template.professional .sidebar * {
+    color: white !important;
+  }
+
+  .cv-template.professional .sidebar-title {
+    color: #3b82f6 !important;
+  }
+
+  /* إصلاح القالب الاحترافي في الطباعة */
+  .cv-template.professional .professional-layout {
+    display: grid !important;
+    grid-template-columns: 220px 1fr !important;
+  }
+
+  /* تحسين القالب الإبداعي */
+  .cv-template.creative .creative-header {
+    background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%) !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  /* تحسين القالب التنفيذي */
+  .cv-template.executive .executive-header {
+    background-color: #0f172a !important;
+    color: white !important;
+  }
+
+  /* تحسين القالب المؤسسي */
+  .cv-template.corporate .corporate-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+  }
+
+  /* تحسين القالب التقني */
+  .cv-template.technical .technical-header {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    color: white !important;
+  }
+
+  /* ضمان ظهور skill tags */
+  .skill-tag,
+  .creative-skill,
+  .elegant-skill,
+  .sidebar-skill,
+  .executive-skill,
+  .corporate-skill-item,
+  .technical-skill-box {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* تحسين borders */
+  .cv-section,
+  .timeline-marker,
+  .corporate-divider,
+  .elegant-divider {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY - إمكانية الوصول
+   ========================================== */
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #2980B9;
+  color: #ffffff;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #f39c12;
+}
+
+/* تحسين Focus Styles */
+*:focus-visible {
+  outline: 3px solid #f39c12;
+  outline-offset: 2px;
+}
+
+/* تحسين التباين للبطاقات */
+.template-card {
+  background: #ffffff;
+  border: 2px solid #dee2e6;
+  color: #212529;
+}
+
+.template-card:hover {
+  border-color: #2980B9;
+  box-shadow: 0 12px 24px rgba(41, 128, 185, 0.15);
+}
+
+.template-name {
+  color: #212529;
+}
+
+.template-description {
+  color: #495057;
+}
+
+/* تحسين الأزرار */
+.select-button {
+  background: #2980B9;
+  color: #ffffff;
+}
+
+.select-button:hover {
+  background: #21618C;
+}
+
+/* ==========================================
+   LOADING ANIMATION - أنيميشن التحميل
+   ========================================== */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(41, 128, 185, 0.2);
+  border-top: 4px solid #2980B9;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  will-change: transform;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================
+   REDUCED MOTION - تقليل الحركة
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ==========================================
+   📱 RESPONSIVE - Utilities
+   ========================================== */
+@media (max-width: 768px) {
+  /* تحسين عرض الأزرار على الموبايل */
+  .preview-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .preview-actions > div,
+  .download-buttons-group {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .download-button,
+  .word-button,
+  .pdf-button,
+  .ats-pdf-button,
+  .pdf-design-button,
+  .print-button,
+  .back-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cv-preview {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cv-preview {
+    padding: 1rem;
+  }
+}
+
+/* ==========================================
+   TOOLTIPS - تلميحات الأزرار
+   ========================================== */
+.download-button::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.download-button:hover::after {
+  opacity: 1;
+}
+
+/* ==========================================
+   UTILITIES CLASSES - كلاسات مساعدة
+   ========================================== */
+
+/* إخفاء العناصر في الطباعة */
+.no-print {
+  display: block;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* تحسين عرض النص */
+.text-justify {
+  text-align: justify;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+/* المسافات */
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.pt-1 { padding-top: 0.5rem; }
+.pt-2 { padding-top: 1rem; }
+.pt-3 { padding-top: 1.5rem; }
+.pt-4 { padding-top: 2rem; }
+
+.pb-1 { padding-bottom: 0.5rem; }
+.pb-2 { padding-bottom: 1rem; }
+.pb-3 { padding-bottom: 1.5rem; }
+.pb-4 { padding-bottom: 2rem; }
+
+/* الظلال */
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+.shadow-xl { box-shadow: var(--shadow-xl); }
+
+/* الحدود */
+.rounded { border-radius: 8px; }
+.rounded-lg { border-radius: 12px; }
+.rounded-xl { border-radius: 20px; }
+.rounded-full { border-radius: 50%; }
+
+/* العرض */
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+
+/* الارتفاع */
+.h-full { height: 100%; }
+.h-auto { height: auto; }
+
+/* الفليكس */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-1 { gap: 0.5rem; }
+.gap-2 { gap: 1rem; }
+.gap-3 { gap: 1.5rem; }
+.gap-4 { gap: 2rem; }
+
+/* الجريد */
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* الخطوط */
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-medium { font-weight: 500; }
+.font-normal { font-weight: 400; }
+.font-light { font-weight: 300; }
+
+/* حجم الخط */
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+.text-4xl { font-size: 2.25rem; }
+
+/* الألوان */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-tertiary { color: var(--text-tertiary); }
+
+.bg-primary { background: var(--bg-primary); }
+.bg-secondary { background: var(--bg-secondary); }
+.bg-tertiary { background: var(--bg-tertiary); }
+
+/* الانتقالات */
+.transition { transition: all 0.3s ease; }
+.transition-fast { transition: all 0.15s ease; }
+.transition-slow { transition: all 0.5s ease; }
+
+/* المؤشر */
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
+
+/* العرض والإخفاء */
+.hidden { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+
+/* الشفافية */
+.opacity-0 { opacity: 0; }
+.opacity-50 { opacity: 0.5; }
+.opacity-100 { opacity: 1; }
+
+/* ==========================================
+   🎉 END OF UTILITIES FILE
+   ========================================== */

@@ -1,0 +1,2379 @@
+/* ==========================================
+   📄 TEMPLATES STYLES - أنماط القوالب
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ==========================================
+   CV TEMPLATES (For Print/Preview)
+   ========================================== */
+.cv-template {
+  color: #1e293b;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* ==========================================
+   1️⃣ MODERN TEMPLATE - القالب العصري
+   ========================================== */
+.modern-header {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 3px solid #3b82f6;
+  margin-bottom: 2rem;
+}
+
+.cv-name {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.cv-title {
+  font-size: 1.3rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.cv-contact {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.cv-section {
+  margin-bottom: 2rem;
+}
+
+.cv-section .section-title {
+  font-size: 1.5rem;
+  color: #0f172a;
+  border-bottom: 2px solid #3b82f6;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.summary-text {
+  color: #475569;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.experience-item,
+.education-item {
+  margin-bottom: 1.5rem;
+  page-break-inside: avoid;
+}
+
+.exp-header,
+.edu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.3rem;
+}
+
+.exp-header h4,
+.edu-header h4 {
+  color: #0f172a;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.duration,
+.year {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.company,
+.institution {
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  color: #475569;
+  font-size: 0.95rem;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.skills-list {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 15px;
+  width: 100%;
+}
+
+.skill-tag {
+  background: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.modern-photo {
+  width: 120px !important;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3b82f6;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+/* ==========================================
+   2️⃣ PROFESSIONAL TEMPLATE - القالب الاحترافي
+   ========================================== */
+.professional-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 0;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #1e293b;
+  color: white;
+  padding: 0 1.5rem 2rem 1.5rem;
+}
+
+.profile-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3b82f6;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 auto 1rem;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.profile-title {
+  font-size: 1rem;
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.sidebar-section {
+  margin-bottom: 2rem;
+}
+
+.sidebar-title {
+  font-size: 1.1rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contact-item {
+  font-size: 0.9rem;
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+.sidebar-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.sidebar-skill {
+  background: rgba(59, 130, 246, 0.1);
+  padding: 0.6rem;
+  border-radius: 8px;
+  border-left: 3px solid #3b82f6;
+  font-weight: 600;
+}
+
+.main-content {
+  padding: 2rem;
+}
+
+.content-section {
+  margin-bottom: 2rem;
+}
+
+.content-title {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3b82f6;
+  font-weight: 700;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+  page-break-inside: avoid;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background: #3b82f6;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  width: 2px;
+  height: calc(100% + 1rem);
+  background: #e2e8f0;
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-content h4 {
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.company-name {
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* ==========================================
+   3️⃣ CREATIVE TEMPLATE - القالب الإبداعي
+   ========================================== */
+.creative-header {
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  border-radius: 0;
+}
+
+.creative-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.creative-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  flex-shrink: 0;
+}
+
+.creative-info {
+  flex: 1;
+  color: white;
+}
+
+.creative-name {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.creative-title {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.creative-contact {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: rgba(255,255,255,0.95);
+  font-size: 0.9rem;
+}
+
+.creative-body {
+  padding: 0 2rem 2rem;
+}
+
+.creative-section {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  page-break-inside: avoid;
+}
+
+.creative-section-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.creative-section-content {
+  flex: 1;
+}
+
+.creative-section-content h3 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.creative-item {
+  margin-bottom: 1.5rem;
+}
+
+.creative-item h4 {
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.creative-meta {
+  color: #3b82f6;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.creative-desc {
+  color: #475569;
+  font-size: 0.95rem;
+  text-align: justify;
+  line-height: 1.7;
+}
+
+.creative-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.creative-skill {
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+/* ==========================================
+   4️⃣ EXECUTIVE TEMPLATE - القالب التنفيذي المحسّن
+   تصميم فخم للمناصب الإدارية والتنفيذية
+   ========================================== */
+
+/* -------------------- HEADER -------------------- */
+.executive-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  padding: 3rem 2.5rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* خط ذهبي في الأعلى */
+.executive-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+}
+
+.executive-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.executive-info h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.executive-info h2 {
+  font-size: 1.4rem;
+  color: #60a5fa;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.executive-tagline {
+  font-size: 1rem;
+  color: #cbd5e1;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* معلومات الاتصال */
+.executive-contact {
+  text-align: right;
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.executive-contact div {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.executive-contact-icon {
+  color: #f59e0b;
+  font-size: 1.1rem;
+}
+
+/* -------------------- SECTIONS -------------------- */
+.executive-section {
+  padding: 2.5rem 3rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.executive-section:last-child {
+  border-bottom: none;
+}
+
+.executive-section-title {
+  font-size: 1.5rem;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding-bottom: 0.8rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+}
+
+/* خط ذهبي تحت العناوين */
+.executive-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%);
+}
+
+/* -------------------- SUMMARY -------------------- */
+.executive-summary {
+  color: #1e293b;
+  text-align: justify;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-left: 4px solid #f59e0b;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* -------------------- EXPERIENCE ITEMS -------------------- */
+.executive-item {
+  margin-bottom: 3rem;
+  page-break-inside: avoid;
+  position: relative;
+  padding-left: 2rem;
+}
+
+/* Timeline marker */
+.executive-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  background: #f59e0b;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #f59e0b;
+}
+
+.executive-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.executive-item-header h3 {
+  color: #0f172a;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.executive-duration {
+  color: white;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.executive-company {
+  color: #f59e0b;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.3px;
+}
+
+.executive-desc {
+  color: #475569;
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* -------------------- GRID LAYOUT -------------------- */
+.executive-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  padding: 0 3rem;
+}
+
+/* -------------------- EDUCATION -------------------- */
+.executive-edu {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+}
+
+.executive-edu h3 {
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.executive-edu p {
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.executive-edu span {
+  color: white;
+  background: #3b82f6;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* -------------------- SKILLS -------------------- */
+.executive-skills {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.executive-skill {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  border-left: 4px solid #f59e0b;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #0f172a;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.executive-skill:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+
+/* -------------------- ACHIEVEMENTS SECTION -------------------- */
+.executive-achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.executive-achievement-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.executive-achievement-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f59e0b;
+  margin-bottom: 0.5rem;
+}
+
+.executive-achievement-label {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  .executive-header {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .executive-contact {
+    text-align: left;
+  }
+
+  .executive-contact div {
+    justify-content: flex-start;
+  }
+
+  .rtl .executive-contact {
+    text-align: right;
+  }
+
+  .rtl .executive-contact div {
+    justify-content: flex-end;
+  }
+
+  .executive-info h1 {
+    font-size: 2rem;
+  }
+
+  .executive-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .executive-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+
+  .executive-item {
+    padding-left: 1.5rem;
+  }
+}
+
+/* -------------------- PRINT STYLES -------------------- */
+@media print {
+  .executive-header {
+    background: #0f172a !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .executive-skill {
+    background: #f8fafc !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .executive-duration {
+    background: #3b82f6 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+}
+/* ==========================================
+   5️⃣ MINIMAL TEMPLATE - القالب البسيط
+   ========================================== */
+.minimal-header {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.minimal-header h1 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.minimal-title {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.minimal-contact {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+.minimal-section {
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.minimal-section h2 {
+  font-size: 1rem;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.minimal-summary {
+  color: #475569;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.minimal-item {
+  margin-bottom: 1.5rem;
+  page-break-inside: avoid;
+}
+
+.minimal-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.3rem;
+}
+
+.minimal-item h3 {
+  color: #0f172a;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.minimal-item span {
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.minimal-item p {
+  color: #64748b;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.minimal-desc {
+  color: #475569;
+  font-size: 0.9rem;
+  text-align: justify;
+  margin-top: 0.5rem;
+  line-height: 1.7;
+}
+
+.minimal-skills {
+  color: #475569;
+  line-height: 2;
+}
+
+/* ==========================================
+   6️⃣ ELEGANT TEMPLATE - القالب الأنيق المحسّن
+   تصميم راقي وأنيق بلمسة كلاسيكية عصرية
+   ========================================== */
+
+/* -------------------- HEADER -------------------- */
+.elegant-header {
+  text-align: center;
+  padding: 4rem 3rem;
+  background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 0;
+  position: relative;
+}
+
+/* زخرفة علوية */
+.elegant-ornament {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, #3b82f6, transparent);
+  margin: 0 auto 2rem;
+  border-radius: 2px;
+}
+
+/* الصورة الشخصية */
+.elegant-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #8b5cf6;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2), 
+              0 0 0 8px rgba(139, 92, 246, 0.1);
+  margin: 0 auto 1.5rem;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.elegant-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.3),
+              0 0 0 12px rgba(139, 92, 246, 0.15);
+}
+
+/* الاسم */
+.elegant-name {
+  font-size: 3rem;
+  color: #0f172a;
+  font-weight: 300;
+  letter-spacing: 6px;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+
+/* المسمى الوظيفي */
+.elegant-title {
+  font-size: 1.3rem;
+  color: #8b5cf6;
+  font-weight: 400;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+/* الخط الفاصل */
+.elegant-divider {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+  margin: 1.5rem auto;
+  position: relative;
+}
+
+.elegant-divider::before,
+.elegant-divider::after {
+  content: '◆';
+  position: absolute;
+  top: -8px;
+  font-size: 0.8rem;
+  color: #8b5cf6;
+}
+
+.elegant-divider::before {
+  left: -15px;
+}
+
+.elegant-divider::after {
+  right: -15px;
+}
+
+/* معلومات الاتصال */
+.elegant-contact {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  margin-top: 2rem;
+}
+
+.elegant-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.elegant-contact-item:hover {
+  color: #8b5cf6;
+  transform: translateY(-2px);
+}
+
+.elegant-contact-icon {
+  color: #8b5cf6;
+  font-size: 1.1rem;
+}
+
+/* -------------------- SECTIONS -------------------- */
+.elegant-section {
+  padding: 3rem 3rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid #f1f5f9;
+  background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.02), transparent);
+}
+
+.elegant-section:last-child {
+  border-bottom: none;
+}
+
+.elegant-section-title {
+  font-size: 1.5rem;
+  color: #0f172a;
+  font-weight: 400;
+  letter-spacing: 4px;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+}
+
+/* زخرفة تحت العناوين */
+.elegant-section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+  margin: 1rem auto 0;
+  position: relative;
+}
+
+.elegant-section-title::before {
+  content: '◆';
+  display: block;
+  color: #8b5cf6;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+/* -------------------- TEXT -------------------- */
+.elegant-text {
+  color: #475569;
+  text-align: justify;
+  line-height: 2;
+  font-size: 1rem;
+  padding: 1.5rem;
+  background: #fafbfc;
+  border-left: 3px solid #8b5cf6;
+  border-radius: 4px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+/* -------------------- ITEMS -------------------- */
+.elegant-item {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f1f5f9;
+  page-break-inside: avoid;
+  position: relative;
+}
+
+.elegant-item:last-child {
+  border-bottom: none;
+}
+
+/* زخرفة جانبية */
+.elegant-item::before {
+  content: '';
+  position: absolute;
+  left: -3rem;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #8b5cf6, transparent);
+  opacity: 0.3;
+}
+
+.elegant-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.elegant-item h3 {
+  color: #0f172a;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.elegant-duration {
+  color: white;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  padding: 0.4rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.elegant-company {
+  color: #8b5cf6;
+  font-style: italic;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
+}
+
+.elegant-desc {
+  color: #475569;
+  text-align: justify;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  padding-left: 1rem;
+  border-left: 2px solid #f1f5f9;
+}
+
+/* -------------------- COLUMNS LAYOUT -------------------- */
+.elegant-columns {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  padding: 0 3rem;
+}
+
+/* -------------------- EDUCATION -------------------- */
+.elegant-edu {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fafbfc 0%, #f8fafc 100%);
+  border-radius: 8px;
+  border-left: 3px solid #8b5cf6;
+  transition: all 0.3s ease;
+}
+
+.elegant-edu:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+}
+
+.elegant-edu h3 {
+  color: #0f172a;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.3px;
+}
+
+.elegant-edu p {
+  color: #64748b;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.elegant-edu span {
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* -------------------- SKILLS -------------------- */
+.elegant-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.elegant-skill {
+  background: white;
+  border: 2px solid #e5e7eb;
+  color: #475569;
+  padding: 0.7rem 1.3rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.elegant-skill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.elegant-skill:hover {
+  color: white;
+  border-color: #8b5cf6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
+.elegant-skill:hover::before {
+  width: 100%;
+}
+
+/* -------------------- DECORATIVE QUOTES -------------------- */
+.elegant-quote {
+  text-align: center;
+  font-style: italic;
+  color: #64748b;
+  font-size: 1.1rem;
+  padding: 2rem 3rem;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.elegant-quote::before,
+.elegant-quote::after {
+  content: '"';
+  font-size: 3rem;
+  color: #8b5cf6;
+  opacity: 0.3;
+  position: absolute;
+}
+
+.elegant-quote::before {
+  top: 0;
+  left: 1rem;
+}
+
+.elegant-quote::after {
+  bottom: -1rem;
+  right: 1rem;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  .elegant-header {
+    padding: 3rem 2rem;
+  }
+
+  .elegant-name {
+    font-size: 2rem;
+    letter-spacing: 3px;
+  }
+
+  .elegant-title {
+    font-size: 1.1rem;
+  }
+
+  .elegant-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .elegant-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.5rem;
+  }
+
+  .elegant-item::before {
+    display: none;
+  }
+
+  .elegant-contact {
+    gap: 1.5rem;
+  }
+}
+
+/* -------------------- PRINT STYLES -------------------- */
+@media print {
+  .elegant-photo {
+    border: 3px solid #8b5cf6 !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .elegant-skill {
+    background: white !important;
+    border: 2px solid #e5e7eb !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .elegant-duration {
+    background: #8b5cf6 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+}
+
+/* ==========================================
+   7️⃣ ATS OPTIMIZED TEMPLATE - قالب ATS
+   ========================================== */
+.ats-optimized {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ats-header {
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.ats-header h1 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.ats-contact-line {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  color: #475569;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.ats-contact-line span::after {
+  content: '|';
+  margin-left: 1rem;
+  color: #cbd5e1;
+}
+
+.ats-contact-line span:last-child::after {
+  content: '';
+}
+
+.ats-job-title {
+  font-size: 1.2rem;
+  color: #1e293b;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.ats-section {
+  margin-bottom: 1.8rem;
+  page-break-inside: avoid;
+}
+
+.ats-section-title {
+  font-size: 1.1rem;
+  color: #0f172a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #0f172a;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.ats-skills-text {
+  color: #1e293b;
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.ats-entry {
+  margin-bottom: 1.5rem;
+  page-break-inside: avoid;
+}
+
+.ats-entry-header {
+  color: #0f172a;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.ats-entry-company {
+  color: #475569;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ats-entry-desc {
+  color: #1e293b;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ==========================================
+   8️⃣ CORPORATE TEMPLATE - القالب المؤسسي المحسّن
+   تصميم احترافي للشركات والمؤسسات الكبرى
+   ========================================== */
+
+/* -------------------- HEADER -------------------- */
+.corporate-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem 3rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+  border-bottom: 5px solid #0284c7;
+  margin-bottom: 0;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* شريط ملون في الأعلى */
+.corporate-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0284c7 0%, #0ea5e9 50%, #0284c7 100%);
+}
+
+.corporate-header-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* الصورة الشخصية */
+.corporate-photo {
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 4px solid #0284c7;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2);
+  transition: all 0.3s ease;
+}
+
+.corporate-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.3);
+}
+
+/* معلومات الشخص */
+.corporate-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.corporate-name {
+  font-size: 2.3rem;
+  color: #0f172a;
+  margin-bottom: 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.corporate-job-title {
+  font-size: 1.3rem;
+  color: #0284c7;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+.corporate-tagline {
+  font-size: 0.95rem;
+  color: #64748b;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+
+/* معلومات الاتصال */
+.corporate-header-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.5rem;
+  background: rgba(2, 132, 199, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(2, 132, 199, 0.1);
+}
+
+.corporate-contact-item {
+  color: #475569;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.corporate-contact-item:hover {
+  color: #0284c7;
+  transform: translateX(-3px);
+}
+
+.corporate-contact-icon {
+  color: #0284c7;
+  font-size: 1rem;
+}
+
+/* -------------------- BODY -------------------- */
+.corporate-body {
+  padding: 0;
+}
+
+/* -------------------- SECTIONS -------------------- */
+.corporate-section {
+  margin-bottom: 0;
+  padding: 2.5rem 3rem;
+  page-break-inside: avoid;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.corporate-section:last-child {
+  border-bottom: none;
+}
+
+.corporate-section-title {
+  font-size: 1.5rem;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* أيقونة بجانب العنوان */
+.corporate-section-icon {
+  color: #0284c7;
+  font-size: 1.4rem;
+}
+
+.corporate-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #0284c7 0%, #0ea5e9 100%);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
+}
+
+.corporate-text {
+  color: #475569;
+  line-height: 1.9;
+  text-align: justify;
+  font-size: 1rem;
+  padding: 1.5rem;
+  background: #fafbfc;
+  border-left: 4px solid #0284c7;
+  border-radius: 8px;
+}
+
+/* -------------------- TWO COLUMN LAYOUT -------------------- */
+.corporate-two-column {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 4rem;
+}
+
+/* -------------------- EXPERIENCE ENTRIES -------------------- */
+.corporate-entry {
+  margin-bottom: 2.5rem;
+  page-break-inside: avoid;
+  position: relative;
+  padding-left: 2rem;
+  border-left: 2px solid #e5e7eb;
+}
+
+/* Timeline dot */
+.corporate-entry::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  background: #0284c7;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #0284c7;
+}
+
+.corporate-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.corporate-entry h4 {
+  color: #0f172a;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.corporate-date {
+  color: white;
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.corporate-company {
+  color: #0284c7;
+  font-weight: 700;
+  font-style: normal;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+}
+
+.corporate-desc {
+  color: #475569;
+  line-height: 1.8;
+  text-align: justify;
+  font-size: 0.95rem;
+}
+
+/* -------------------- EDUCATION -------------------- */
+.corporate-edu {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fafbfc 0%, #f8fafc 100%);
+  border-radius: 10px;
+  border-left: 4px solid #0284c7;
+  transition: all 0.3s ease;
+}
+
+.corporate-edu:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.1);
+}
+
+.corporate-edu h4 {
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+}
+
+.corporate-edu p {
+  color: #64748b;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.corporate-year {
+  color: white;
+  background: #0284c7;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* -------------------- SKILLS -------------------- */
+.corporate-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.corporate-skill-item {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  border-left: 4px solid #0284c7;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.corporate-skill-item::before {
+  content: '✓';
+  color: #0284c7;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.corporate-skill-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.15);
+  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  color: white;
+}
+
+.corporate-skill-item:hover::before {
+  color: white;
+}
+
+/* -------------------- ACHIEVEMENTS -------------------- */
+.corporate-achievements {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.corporate-achievement {
+  text-align: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.corporate-achievement:hover {
+  border-color: #0284c7;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.15);
+}
+
+.corporate-achievement-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0284c7;
+  margin-bottom: 0.5rem;
+}
+
+.corporate-achievement-label {
+  font-size: 0.85rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  .corporate-header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .corporate-header-left {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .corporate-header-right {
+    text-align: left;
+  }
+
+  .corporate-contact-item {
+    justify-content: flex-start;
+  }
+
+  .rtl .corporate-header-right {
+    text-align: right;
+  }
+
+  .rtl .corporate-contact-item {
+    justify-content: flex-end;
+  }
+
+  .corporate-two-column {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .corporate-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .corporate-entry {
+    padding-left: 1.5rem;
+  }
+
+  .corporate-skills {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -------------------- PRINT STYLES -------------------- */
+@media print {
+  .corporate-header {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .corporate-date,
+  .corporate-year {
+    background: #0284c7 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .corporate-skill-item {
+    background: #f8fafc !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .corporate-photo {
+    border: 4px solid #0284c7 !important;
+  }
+}
+
+/* ==========================================
+   9️⃣ TECHNICAL TEMPLATE - القالب التقني
+   نسخة نظيفة بدون backgrounds للطباعة
+   ========================================== */
+
+/* -------------------- HEADER -------------------- */
+.technical-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: white;
+  padding: 3rem 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 5px solid #06b6d4;
+}
+
+.technical-name-section {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.technical-name-section h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.5px;
+}
+
+.technical-title-bar {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.technical-job-title {
+  color: #38bdf8;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.technical-contact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.technical-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+.technical-label {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+/* -------------------- SECTIONS -------------------- */
+.technical-section {
+  padding: 0 2.5rem;
+  margin-bottom: 2.5rem;
+  page-break-inside: avoid;
+}
+
+.technical-section-title {
+  font-size: 1.6rem;
+  color: #0f172a;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding-bottom: 0.8rem;
+  border-bottom: 3px solid #06b6d4;
+  position: relative;
+}
+
+/* خط صغير إضافي */
+.technical-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 80px;
+  height: 3px;
+  background: #3b82f6;
+}
+
+.technical-text {
+  color: #475569;
+  line-height: 1.9;
+  text-align: justify;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid #e2e8f0;
+}
+
+/* -------------------- SKILLS (بدون background) -------------------- */
+.technical-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.technical-skill-box {
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 1rem;
+  border-left: 4px solid #06b6d4;
+}
+
+/* -------------------- EXPERIENCE -------------------- */
+.technical-entry {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+  page-break-inside: avoid;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.technical-entry:last-child {
+  border-bottom: none;
+}
+
+/* خط timeline على الجانب */
+.technical-entry::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 2rem;
+  width: 3px;
+  background: linear-gradient(180deg, #06b6d4 0%, #e2e8f0 100%);
+}
+
+/* نقطة timeline */
+.technical-entry::after {
+  content: '';
+  position: absolute;
+  left: -3.5px;
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  background: #06b6d4;
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #06b6d4;
+}
+
+.technical-entry-header {
+  margin-bottom: 1rem;
+}
+
+.technical-entry h4 {
+  color: #0f172a;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.3px;
+}
+
+.technical-company {
+  color: #06b6d4;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.technical-duration {
+  color: white;
+  background: #06b6d4;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* -------------------- DESCRIPTION LIST (بدون background) -------------------- */
+.technical-desc-list {
+  list-style: none;
+  margin: 1.2rem 0 0 0;
+  padding: 0;
+  color: #475569;
+  line-height: 1.9;
+}
+
+.technical-desc-list li {
+  margin-bottom: 1rem;
+  padding-right: 2rem;
+  position: relative;
+  font-size: 0.98rem;
+}
+
+/* رمز مربع بدل النقطة */
+.technical-desc-list li::before {
+  content: '▪';
+  position: absolute;
+  right: 0.5rem;
+  color: #06b6d4;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* للإنجليزي */
+.ltr .technical-desc-list li {
+  padding-left: 2rem;
+  padding-right: 0;
+}
+
+.ltr .technical-desc-list li::before {
+  left: 0.5rem;
+  right: auto;
+}
+
+/* -------------------- EDUCATION (بدون background) -------------------- */
+.technical-edu {
+  margin-bottom: 2rem;
+  page-break-inside: avoid;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.technical-edu:last-child {
+  border-bottom: none;
+}
+
+.technical-edu-header {
+  margin-bottom: 0.8rem;
+}
+
+.technical-edu h4 {
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.technical-institution {
+  color: #06b6d4;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.technical-year {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 2px solid #3b82f6;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* -------------------- CERTIFICATIONS -------------------- */
+.technical-certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.technical-cert-item {
+  padding: 1.2rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  page-break-inside: avoid;
+}
+
+.technical-cert-name {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.technical-cert-issuer {
+  color: #06b6d4;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.technical-cert-date {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* -------------------- PROJECTS -------------------- */
+.technical-project {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  border-top: 4px solid #06b6d4;
+  page-break-inside: avoid;
+}
+
+.technical-project-header {
+  margin-bottom: 0.8rem;
+}
+
+.technical-project-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+}
+
+.technical-project-role {
+  color: #06b6d4;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.technical-project-desc {
+  color: #475569;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.technical-project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.technical-tech-tag {
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 768px) {
+  .technical-header {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .technical-name-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .technical-section {
+    padding: 0 1.5rem;
+  }
+
+  .technical-skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .technical-certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-entry {
+    padding-left: 1.5rem;
+  }
+
+  .technical-contact-grid {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .technical-skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -------------------- PRINT STYLES -------------------- */
+@media print {
+  .technical-header {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .technical-duration {
+    background: #06b6d4 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .technical-year {
+    border: 2px solid #3b82f6 !important;
+    color: #3b82f6 !important;
+  }
+
+  .technical-skill-box,
+  .technical-cert-item,
+  .technical-project {
+    border: 2px solid #e2e8f0 !important;
+  }
+
+  /* منع تقطيع العناصر */
+  .technical-entry,
+  .technical-edu,
+  .technical-cert-item,
+  .technical-project {
+    page-break-inside: avoid !important;
+  }
+}
+
+/* ==========================================
+   📱 RESPONSIVE - Templates
+   ========================================== */
+@media (max-width: 768px) {
+  .professional-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    padding-bottom: 1rem;
+  }
+
+  .executive-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .executive-contact {
+    text-align: left;
+  }
+
+  .rtl .executive-contact {
+    text-align: right;
+  }
+
+  .executive-grid,
+  .elegant-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .corporate-header {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .corporate-header-right {
+    text-align: left;
+  }
+
+  .rtl .corporate-header-right {
+    text-align: right;
+  }
+
+  .corporate-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-skills-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
+/* ==========================================
+   🖨️ PRINT STYLES - Templates
+   ========================================== */
+@media print {
+  .professional-layout {
+    grid-template-columns: 220px 1fr !important;
+    display: grid !important;
+  }
+
+  .sidebar {
+    padding: 0 1rem !important;
+    background: #1e293b !important;
+    min-height: auto !important;
+    page-break-after: avoid;
+  }
+
+  .cv-template.professional {
+    display: block !important;
+  }
+
+  .cv-template.professional .professional-layout {
+    display: block !important;
+    position: relative;
+  }
+
+  .cv-template.professional .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 220px;
+    background: #1e293b !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .cv-template.professional .main-content {
+    margin-left: 240px;
+    padding: 0 2rem !important;
+  }
+
+  .rtl .cv-template.professional .sidebar {
+    left: auto;
+    right: 0;
+  }
+
+  .rtl .cv-template.professional .main-content {
+    margin-left: 0;
+    margin-right: 240px;
+  }
+
+  .profile-photo,
+  .profile-avatar {
+    width: 80px !important;
+    height: 80px !important;
+    font-size: 2rem !important;
+    margin-top: 1rem !important;
+  }
+
+  .profile-name {
+    font-size: 1.2rem !important;
+  }
+
+  .profile-title {
+    font-size: 0.9rem !important;
+  }
+
+  .sidebar-title {
+    font-size: 0.95rem !important;
+  }
+
+  .contact-item,
+  .sidebar-skill {
+    font-size: 0.8rem !important;
+  }
+
+  .sidebar-section {
+    margin-bottom: 1.5rem !important;
+  }
+}
