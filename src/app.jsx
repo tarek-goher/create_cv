@@ -11,7 +11,7 @@ import CVForm from './CVForm';
 import CVPreview from './CVPreview';
 // import PdfToWord from './wor.jsx';
 import  PdfToWord from './PdfToWord.jsx'
-import Footer from './footer/footer.jsx'; 
+import Footer from './Footer/footer.jsx'; 
 // ==========================================
 // CV TEMPLATES DATA - قوالب السيرة الذاتية (ALL FREE)
 // ==========================================
