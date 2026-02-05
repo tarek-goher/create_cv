@@ -425,7 +425,7 @@ const PdfToWord = ({ language = 'ar', onNavigateHome }) => {
   onClick={onNavigateHome}
   aria-label={t.home} // ✅ بيخلي الزرار متعرف بوضوح لقارئ الشاشة
 >
-  <Home size={20} aria-hidden="true" /> // ✅ بيخلي الأيقونة "غير مرئية" تقنياً عشان م تشتتش النظام
+  <Home size={20} aria-hidden="true" /> 
   <span>{t.home}</span>
 </button>
       )}
@@ -465,8 +465,10 @@ const PdfToWord = ({ language = 'ar', onNavigateHome }) => {
   }}
   aria-label={t.uploadBtn} // ✅ تحديد اسم واضح للزرار
 >
-  <FileText size={20} aria-hidden="true" /> // ✅ إخفاء الأيقونة عن قارئ الشاشة
-  <span>{t.uploadBtn}</span> // ✅ وضع النص داخل span أفضل للتنظيم
+  {/* // ✅ إخفاء الأيقونة عن قارئ الشاشة */}
+  <FileText size={20} aria-hidden="true" /> 
+  {/* // ✅ وضع النص داخل span أفضل للتنظيم */}
+  <span>{t.uploadBtn}</span> 
 </button>
             </div>
           ) : (
@@ -489,7 +491,8 @@ const PdfToWord = ({ language = 'ar', onNavigateHome }) => {
   disabled={converting}
   aria-label={language === 'ar' ? "حذف الملف" : "Remove file"} // ✅ الحل السحري هنا
 >
-  <X size={20} aria-hidden="true" /> // ✅ إخفاء الأيقونة عن قارئ الشاشة
+  {/* // ✅ إخفاء الأيقونة عن قارئ الشاشة */}
+  <X size={20} aria-hidden="true" /> 
 </button>
             </div>
           )}
@@ -569,8 +572,10 @@ const PdfToWord = ({ language = 'ar', onNavigateHome }) => {
   type="button"
   aria-label={t.reset} // ✅ تعريف واضح للزرار
 >
-  <FileText size={20} aria-hidden="true" /> // ✅ تجاهل الأيقونة برمجياً
-  <span>{t.reset}</span> // ✅ وضع النص في وعاء مستقل
+  {/* // ✅ تجاهل الأيقونة برمجياً */}
+  <FileText size={20} aria-hidden="true" /> 
+  {/* // ✅ وضع النص في وعاء مستقل */}
+  <span>{t.reset}</span> 
 </button>
         )}
 
