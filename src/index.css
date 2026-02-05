@@ -247,7 +247,7 @@ body, .cv-template, .cv-preview {
 }
 
 .main-title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
@@ -257,10 +257,72 @@ body, .cv-template, .cv-preview {
 }
 
 .subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   max-width: 1200px;
   margin: 0 auto;
+}
+@media (max-width: 991px) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+
+  .main-title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile (576px - 767px) */
+@media (max-width: 767px) {
+  .header {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .main-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Small Mobile (up to 575px) */
+@media (max-width: 575px) {
+  .header {
+    padding: 1rem 0.5rem;
+  }
+
+  .main-title {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+}
+
+/* Extra Small (up to 380px) */
+@media (max-width: 380px) {
+  .header {
+    padding: 0.8rem 0.4rem;
+  }
+
+  .main-title {
+    font-size: 1rem;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+  }
 }
 
 /* ==========================================
@@ -1209,9 +1271,9 @@ body, .cv-template, .cv-preview {
     padding: 1.5rem 1rem;
   }
 
-  .progress-steps {
+  /* .progress-steps {
     flex-wrap: wrap;
-  }
+  } */
 
   .step-line {
     width: 50px;

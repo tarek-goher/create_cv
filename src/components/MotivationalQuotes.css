@@ -1,0 +1,407 @@
+/* ==========================================
+   MOTIVATIONAL QUOTES STYLES - COMPLETE & FORCED
+   ========================================== */
+
+.quotes-container {
+  max-width: 1400px ;
+  margin: 0 auto !important;
+  padding: 3rem 1.5rem !important;
+  min-height: 100vh !important;
+}
+
+.quotes-container.rtl {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Header */
+.quotes-header {
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+}
+
+.quotes-title {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.quotes-subtitle {
+  font-size: 1.2rem !important;
+  color: #6b7280 !important;
+  opacity: 0.8 !important;
+}
+
+/* Categories Filter */
+.quotes-categories {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 3rem !important;
+  padding: 0 1rem !important;
+}
+
+.category-btn {
+  padding: 0.75rem 1.5rem !important;
+  border: 2px solid #e5e7eb !important;
+  background: #ffffff !important;
+  color: #1f2937 !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.category-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-color: #6366f1 !important;
+}
+
+.category-btn.active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Quotes Grid - FIXED FOR PROPER LAYOUT */
+.quotes-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 2rem !important;
+  animation: fadeIn 0.6s ease-in !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Quote Card */
+.quote-card {
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  padding: 2rem !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  border: 1px solid #e5e7eb !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.quote-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 4px !important;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6) !important;
+  transform: scaleX(0) !important;
+  transition: transform 0.4s ease !important;
+}
+
+.quote-card:hover::before {
+  transform: scaleX(1) !important;
+}
+
+.quote-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+  border-color: #6366f1 !important;
+}
+
+/* Quote Icon */
+.quote-icon {
+  font-size: 3rem !important;
+  margin-bottom: 1.5rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  filter: grayscale(20%) !important;
+  transition: all 0.3s ease !important;
+}
+
+.quote-card:hover .quote-icon {
+  transform: scale(1.1) rotate(5deg) !important;
+  filter: grayscale(0%) !important;
+}
+
+/* Quote Text */
+.quote-text {
+  margin: 0 0 1.5rem 0 !important;
+}
+
+.quote-text p {
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+  color: #1f2937 !important;
+  font-style: italic !important;
+  margin: 0 !important;
+  position: relative !important;
+  padding: 0 0.5rem !important;
+}
+
+/* Quote Author */
+.quote-author {
+  text-align: center !important;
+  padding-top: 1rem !important;
+  border-top: 1px solid #e5e7eb !important;
+}
+
+.quote-author cite {
+  font-style: normal !important;
+  color: #6b7280 !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+}
+
+/* RTL Adjustments */
+.quotes-container.rtl .quote-card::before {
+  left: auto !important;
+  right: 0 !important;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN - COMPLETE
+   ========================================== */
+
+/* Large Screens (1200px - 1400px) */
+@media (max-width: 1400px) {
+  .quotes-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Medium-Large Screens (992px - 1199px) */
+@media (max-width: 1199px) {
+  .quotes-container {
+    padding: 2.5rem 1.5rem !important;
+    height: 200px !important;
+    overflow: scroll;
+  }
+
+  .quotes-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.8rem !important;
+  }
+
+  .quotes-title {
+    font-size: 2.2rem !important;
+  }
+}
+
+/* Tablets (768px - 991px) */
+@media (max-width: 991px) {
+  .quotes-container {
+    padding: 2rem 1.2rem !important;
+  }
+
+  .quotes-title {
+    font-size: 2rem !important;
+  }
+
+  .quotes-subtitle {
+    font-size: 1.1rem !important;
+  }
+
+  .quotes-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  .category-btn {
+    padding: 0.65rem 1.3rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* Small Tablets & Large Phones (576px - 767px) */
+@media (max-width: 767px) {
+  .quotes-container {
+    padding: 2rem 1rem !important;
+  }
+
+  .quotes-header {
+    margin-bottom: 2rem !important;
+  }
+
+  .quotes-title {
+    font-size: 1.8rem !important;
+  }
+
+  .quotes-subtitle {
+    font-size: 1rem !important;
+  }
+
+  .quotes-categories {
+    margin-bottom: 2rem !important;
+    gap: 0.8rem !important;
+  }
+
+  .quotes-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .category-btn {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .quote-card {
+    padding: 1.5rem !important;
+  }
+
+  .quote-text p {
+    font-size: 1rem !important;
+  }
+
+  .quote-icon {
+    font-size: 2.5rem !important;
+  }
+}
+
+/* Mobile Phones (up to 575px) */
+@media (max-width: 575px) {
+  .quotes-container {
+    padding: 1.5rem 0.8rem !important;
+  }
+
+  .quotes-header {
+    margin-bottom: 1.5rem !important;
+  }
+
+  .quotes-title {
+    font-size: 1.6rem !important;
+  }
+
+  .quotes-subtitle {
+    font-size: 0.95rem !important;
+  }
+
+  .quotes-categories {
+    gap: 0.6rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .category-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  .quotes-grid {
+    gap: 1.2rem !important;
+  }
+
+  .quote-card {
+    padding: 1.2rem !important;
+    border-radius: 15px !important;
+  }
+
+  .quote-icon {
+    font-size: 2.2rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .quote-text p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .quote-author {
+    padding-top: 0.8rem !important;
+  }
+
+  .quote-author cite {
+    font-size: 0.85rem !important;
+  }
+}
+
+/* Extra Small Phones (up to 380px) */
+@media (max-width: 380px) {
+  .quotes-container {
+    padding: 1rem 0.5rem !important;
+  }
+
+  .quotes-title {
+    font-size: 1.4rem !important;
+  }
+
+  .quotes-subtitle {
+    font-size: 0.9rem !important;
+  }
+
+  .category-btn {
+    padding: 0.45rem 0.9rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  .quote-card {
+    padding: 1rem !important;
+  }
+
+  .quote-text p {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ==========================================
+   DARK THEME SUPPORT
+   ========================================== */
+
+[data-theme="dark"] .quote-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .quote-card:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #6366f1 !important;
+}
+
+[data-theme="dark"] .category-btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #f9fafb !important;
+}
+
+[data-theme="dark"] .category-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme="dark"] .quotes-title {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+[data-theme="dark"] .quotes-subtitle {
+  color: #d1d5db !important;
+}
+
+[data-theme="dark"] .quote-text p {
+  color: #f9fafb !important;
+}
+
+[data-theme="dark"] .quote-author cite {
+  color: #d1d5db !important;
+}
+
+[data-theme="dark"] .quote-author {
+  border-top-color: rgba(255, 255, 255, 0.1) !important;
+}

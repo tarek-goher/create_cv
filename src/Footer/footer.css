@@ -4,7 +4,7 @@
 .footer {
   background: var(--bg-secondary);
   border-top: 2px solid var(--border-color);
-  padding: 2rem 1rem;
+  padding: 3rem 1rem 2rem;
   margin-top: 4rem;
 }
 
@@ -14,9 +14,56 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
+/* ==========================================
+   FOOTER BRAND WITH ICON
+   ========================================== */
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  background: var(--accent-gradient);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.brand-text-footer h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.2rem;
+}
+
+.brand-text-footer p {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* ==========================================
+   FOOTER LINKS
+   ========================================== */
 .footer-links {
   display: flex;
   gap: 2rem;
@@ -29,208 +76,88 @@
   align-items: center;
   gap: 0.5rem;
   background: none;
-  border: none;
+  border: 2px solid transparent;
   color: var(--accent-primary);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  padding: 0.7rem 1.3rem;
+  border-radius: 10px;
 }
 
 .footer-link:hover {
   background: rgba(59, 130, 246, 0.1);
-  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 
+/* تلوين خاص لزر النصائح */
+.tips-link {
+  color: #f59e0b;
+}
+
+.tips-link:hover {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: #f59e0b;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+
+/* ==========================================
+   FOOTER COPYRIGHT
+   ========================================== */
 .footer-copy {
   color: var(--text-tertiary);
   font-size: 0.9rem;
   text-align: center;
-}
-
-/* ==========================================
-   MODAL STYLES
-   ========================================== */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 1rem;
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.modal-content {
-  background: var(--bg-secondary);
-  border-radius: 16px;
-  padding: 2rem;
-  max-width: 600px;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
   width: 100%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  animation: slideUp 0.3s ease;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.privacy-modal {
-  max-width: 800px;
-}
-
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(239, 68, 68, 0.1);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: #ef4444;
-  transition: all 0.3s ease;
-}
-
-.rtl .modal-close {
-  right: auto;
-  left: 1rem;
-}
-
-.modal-close:hover {
-  background: #ef4444;
-  color: white;
-  transform: rotate(90deg);
-}
-
-.modal-content h2 {
-  font-size: 2rem;
-  color: var(--accent-primary);
-  margin-bottom: 1rem;
-}
-
-.modal-desc {
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-}
-
-.modal-intro {
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.modal-content .form-group {
-  margin-bottom: 1.5rem;
-}
-
-.modal-content .form-group label {
-  display: block;
-  color: var(--text-secondary);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.modal-content .form-group input,
-.modal-content .form-group textarea {
-  width: 100%;
-  padding: 0.9rem;
-  background: var(--bg-tertiary);
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  color: var(--text-primary);
-  font-size: 1rem;
-  transition: all 0.3s ease;
-  font-family: inherit;
-}
-
-.modal-content .form-group input:focus,
-.modal-content .form-group textarea:focus {
-  outline: none;
-  border-color: var(--accent-primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.submit-btn,
-.close-btn {
-  width: 100%;
-  padding: 1rem;
-  background: var(--accent-gradient);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-}
-
-.submit-btn:hover,
-.close-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-}
-
-.privacy-section {
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.privacy-section:last-of-type {
-  border-bottom: none;
-}
-
-.privacy-section h3 {
-  color: var(--accent-primary);
-  font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-}
-
-.privacy-section p {
-  color: var(--text-secondary);
-  line-height: 1.8;
-  font-size: 1rem;
 }
 
 /* ==========================================
    RESPONSIVE
    ========================================== */
 @media (max-width: 768px) {
+  .footer {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .footer-brand {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .brand-text-footer h3 {
+    font-size: 1.3rem;
+  }
+
   .footer-links {
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
   }
 
-  .modal-content {
-    padding: 1.5rem;
-    margin: 1rem;
+  .footer-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    width: 50px;
+    height: 50px;
   }
 
-  .modal-content h2 {
-    font-size: 1.5rem;
+  .footer-logo svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .brand-text-footer h3 {
+    font-size: 1.2rem;
   }
 }
 

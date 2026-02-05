@@ -2,6 +2,7 @@
 // MAIN APP COMPONENT - CV BUILDER
 // ==========================================
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { Printer, Globe, Sun, Moon } from 'lucide-react';
 import './css/style.css';
 import './css/templates-styles.css';
@@ -11,7 +12,11 @@ import CVForm from './CVForm';
 import CVPreview from './CVPreview';
 // import PdfToWord from './wor.jsx';
 import  PdfToWord from './PdfToWord.jsx'
+import ContactUs from './contactUs/contactus.jsx';
+import CVTips from './CVTips/CVTips.jsx';
+import Privacy from './Privacy/Privacy.jsx';
 import Footer from './Footer/footer.jsx'; 
+import MotivationalQuotes from './components/Tips.jsx'; // ✅ استيراد المكون الجديد
 // ==========================================
 // CV TEMPLATES DATA - قوالب السيرة الذاتية (ALL FREE)
 // ==========================================
@@ -192,6 +197,9 @@ const TRANSLATIONS = {
 // MAIN APP COMPONENT
 // ==========================================
 function App() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  
   // STATE MANAGEMENT - إدارة الحالة
   const [language, setLanguage] = useState('en');
   const [theme, setTheme] = useState('dark');
@@ -272,74 +280,69 @@ const [formData, setFormData] = useState({
     window.print();
   };
 
-  return (
-    <div className={`app ${language === 'ar' ? 'rtl' : 'ltr'}`}>
-      {/* ==========================================
-          NAVBAR - شريط التنقل
-          ========================================== */}
-      <nav className="navbar no-print">
-        <div className="navbar-content">
-          <div className="navbar-brand" onClick={() => setCurrentStep(1)}>
-            <span className="brand-icon">📄</span>
-            <span className="brand-text">{language === 'ar' ? 'منشئ السيرة الذاتية' : 'CV Builder'}</span>
-          </div>
-          
-          <div className="navbar-actions">
-            <button 
-              className="converter-btn"
-              onClick={() => {
-                setShowConverter(true);
-                setCurrentStep(1);
-              }}
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-              </svg>
-              {language === 'ar' ? 'PDF إلى Word' : 'PDF to Word'}
-            </button>
-            {currentStep !== 1 && !showConverter && (
-              <button className="home-btn" onClick={() => setCurrentStep(1)}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
-                {language === 'ar' ? 'الرئيسية' : 'Home'}
-              </button>
-            )}
-            {showConverter && (
-              <button className="home-btn" onClick={() => setShowConverter(false)}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
-                {language === 'ar' ? 'الرئيسية' : 'Home'}
-              </button>
-            )}
-            <button className="theme-toggle" onClick={toggleTheme}>
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
-            <button 
-              className="lang-toggle"
-              onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-            >
-              <Globe size={20} />
-              {language === 'ar' ? 'EN' : 'عربي'}
-            </button>
-          </div>
+return (
+  <div className={`app ${language === 'ar' ? 'rtl' : 'ltr'}`}>
+    {/* ==========================================
+        NAVBAR - شريط التنقل
+        ========================================== */}
+    <nav className="navbar no-print">
+      <div className="navbar-content">
+        <div className="navbar-brand" onClick={() => setCurrentStep(1)}>
+          <span className="brand-icon">📄</span>
+          <span className="brand-text">{language === 'ar' ? 'منشئ السيرة الذاتية' : 'CV Builder'}</span>
         </div>
-      </nav>
+        
+        <div className="navbar-actions">
+          <button 
+            className="converter-btn"
+            onClick={() => {
+              setShowConverter(true);
+              setCurrentStep(1);
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            {language === 'ar' ? 'PDF إلى Word' : 'PDF to Word'}
+          </button>
+          {((currentStep !== 1 && !showConverter) || location.pathname !== '/') && (
+            <button className="home-btn" onClick={() => {
+              setCurrentStep(1);
+              setShowConverter(false);
+              navigate('/');
+            }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              {language === 'ar' ? 'الرئيسية' : 'Home'}
+            </button>
+          )}
+          <button className="theme-toggle" onClick={toggleTheme}>
+            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+          </button>
+          <button 
+            className="lang-toggle"
+            onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
+          >
+            <Globe size={20} />
+            {language === 'ar' ? 'EN' : 'عربي'}
+          </button>
+        </div>
+      </div>
+    </nav>
 
-      {/* ==========================================
-          HEADER - الهيدر
-          ========================================== */}
-      {!showConverter && (
-        <header className="header no-print">
-          <h1 className="main-title">{t.title}</h1>
-          <p className="subtitle">{t.subtitle}</p>
-          
-          {/* PROGRESS STEPS - خطوات التقدم */}
-          <div className="progress-steps">
+    {/* ==========================================
+        HEADER - الهيدر
+        ========================================== */}
+    {!showConverter && (
+      <header className="header no-print">
+        <h1 className="main-title">{t.title}</h1>
+        <p className="subtitle">{t.subtitle}</p>
+        
+        {/* PROGRESS STEPS - خطوات التقدم */}
+        <div className="progress-steps">
           <div className={`step ${currentStep >= 1 ? 'active' : ''}`}>
             <div className="step-number">1</div>
             <div className="step-label">{t.selectTemplate}</div>
@@ -356,52 +359,61 @@ const [formData, setFormData] = useState({
           </div>
         </div>
       </header>
-      )}
+    )}
 
-      {/* ==========================================
-          MAIN CONTENT - المحتوى الرئيسي
-          ========================================== */}
-      <main className="main-content">
-        {/* PDF TO WORD CONVERTER */}
-        {showConverter && (
-          <PdfToWord language={language} />
-        )}
+    {/* ==========================================
+        MAIN CONTENT - المحتوى الرئيسي
+        ========================================== */}
+    <Routes>
+      <Route path="/" element={
+        <main className="main-content">
+          {/* PDF TO WORD CONVERTER */}
+          {showConverter && (
+            <PdfToWord language={language} />
+          )}
 
-        {/* STEP 1: TEMPLATE SELECTION - اختيار القالب */}
-        {!showConverter && currentStep === 1 && (
-          <TemplateSelector 
-            templates={templates}
-            language={language}
-            onSelect={handleTemplateSelect}
-          />
-        )}
+          {/* STEP 1: TEMPLATE SELECTION - اختيار القالب */}
+          {!showConverter && currentStep === 1 && (
+            <TemplateSelector 
+              templates={templates}
+              language={language}
+              onSelect={handleTemplateSelect}
+            />
+          )}
 
-        {/* STEP 2: FORM - النموذج */}
-        {!showConverter && currentStep === 2 && (
-          <CVForm 
-            formData={formData}
-            language={language}
-            selectedTemplate={selectedTemplate}
-            onChange={handleInputChange}
-            onBack={() => setCurrentStep(1)}
-            onNext={() => setCurrentStep(3)}
-          />
-        )}
+          {/* STEP 2: FORM - النموذج */}
+          {!showConverter && currentStep === 2 && (
+            <CVForm 
+              formData={formData}
+              language={language}
+              selectedTemplate={selectedTemplate}
+              onChange={handleInputChange}
+              onBack={() => setCurrentStep(1)}
+              onNext={() => setCurrentStep(3)}
+            />
+          )}
 
-        {/* STEP 3: PREVIEW - المعاينة */}
-        {!showConverter && currentStep === 3 && (
-          <CVPreview 
-            template={selectedTemplate}
-            formData={formData}
-            language={language}
-            onBack={() => setCurrentStep(2)}
-            onPrint={handlePrint}
-          />
-        )}
-      </main>
-      <Footer language={language} />
-    </div>
-  );
+          {/* STEP 3: PREVIEW - المعاينة */}
+          {!showConverter && currentStep === 3 && (
+            <CVPreview 
+              template={selectedTemplate}
+              formData={formData}
+              language={language}
+              onBack={() => setCurrentStep(2)}
+              onPrint={handlePrint}
+            />
+          )}
+        </main>
+      } />
+      <Route path='/Tips' element={<MotivationalQuotes language={language} />} />
+      <Route path="/contact" element={<ContactUs language={language} />} />
+      <Route path="/cv-tips" element={<CVTips language={language} />} />
+      <Route path="/privacy" element={<Privacy language={language} />} />
+    </Routes>
+
+    <Footer language={language} />
+  </div>
+);
 }
 
 export default App;

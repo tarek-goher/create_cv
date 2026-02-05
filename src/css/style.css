@@ -694,3 +694,33 @@ picture img {
 /* ==========================================
    🎉 END OF UTILITIES FILE
    ========================================== */
+   /* Scroll to Templates Button - Responsive */
+@media (max-width: 768px) {
+  .scroll-to-templates-btn {
+    font-size: 1rem !important;
+    padding: 0.85rem 2rem !important;
+  }
+
+  .templates-section-header h2 {
+    font-size: 2rem !important;
+  }
+
+  .templates-section-header p {
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-to-templates-btn {
+    font-size: 0.9rem !important;
+    padding: 0.75rem 1.5rem !important;
+  }
+
+  .templates-section-header h2 {
+    font-size: 1.6rem !important;
+  }
+
+  .templates-section-header p {
+    font-size: 0.95rem !important;
+  }
+}
