@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Shield, X } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import './Footer.css';
+import './footer.css';
 
 const Footer = ({ language }) => {
   const [showContact, setShowContact] = useState(false);
@@ -36,7 +36,7 @@ const Footer = ({ language }) => {
     cookiesText: 'نستخدم ملفات تعريف الارتباط الأساسية فقط لتحسين تجربة المستخدم (مثل حفظ اللغة والثيم المفضل).',
     security: 'الأمان',
     securityText: 'جميع العمليات تتم على جهازك. لا يتم إرسال أي بيانات إلى خوادمنا.',
-    rights: 'حقوقك',
+    userRights: 'حقوقك', // تم تغيير الاسم هنا
     rightsText: 'لك الحق الكامل في بياناتك. يمكنك حذف جميع المعلومات في أي وقت بمجرد تحديث الصفحة.'
   } : {
     contact: 'Contact Us',
@@ -66,7 +66,7 @@ const Footer = ({ language }) => {
     cookiesText: 'We only use essential cookies to improve user experience (such as saving your preferred language and theme).',
     security: 'Security',
     securityText: 'All operations are performed on your device. No data is sent to our servers.',
-    rights: 'Your Rights',
+    userRights: 'Your Rights', // تم تغيير الاسم هنا
     rightsText: 'You have full rights to your data. You can delete all information at any time by refreshing the page.'
   };
 
@@ -188,7 +188,7 @@ const Footer = ({ language }) => {
             </div>
             
             <div className="privacy-section">
-              <h3>{t.rights}</h3>
+              <h3>{t.userRights}</h3> {/* تم التغيير هنا */}
               <p>{t.rightsText}</p>
             </div>
             
