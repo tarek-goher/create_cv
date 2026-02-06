@@ -223,7 +223,7 @@ const TemplateSelector = ({ templates, language, onSelect }) => {
   return (
     <>
       {/* ==========================================
-          SCROLL TO TEMPLATES BUTTON - زر النزول للقوالب (أول حاجة)
+          SCROLL TO TEMPLATES BUTTON - زر النزول للقوالب
           ========================================== */}
       <div className="scroll-to-templates-container" style={{
         display: 'flex',
@@ -241,14 +241,11 @@ const TemplateSelector = ({ templates, language, onSelect }) => {
             padding: '1rem 2.5rem',
             fontSize: '1.1rem',
             fontWeight: '600',
-            // backfaceVisibility: 'initial !important',
-              border: '2px solid #60a5fa',
-             color: '#60a5fa ',
-              backgroundColor: 'transparent',
-            // border: 'none',
+            border: '2px solid #60a5fa',
+            color: '#60a5fa',
+            backgroundColor: 'transparent',
             borderRadius: '50px',
             cursor: 'pointer',
-            // boxShadow: '0 4px 15px rgba(99, 102, 241, 0.3)',
             transition: 'all 0.3s ease'
           }}
           onMouseEnter={(e) => {

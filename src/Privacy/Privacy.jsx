@@ -49,10 +49,10 @@ const Privacy = ({ language }) => {
   return (
     <div className={`privacy-page ${language === 'ar' ? 'rtl' : 'ltr'}`}>
       <div className="privacy-container">
-        <button className="back-btn" onClick={() => navigate('/')}>
+        {/* <button className="back-btn" onClick={() => navigate('/')}>
           {language === 'ar' ? <ArrowRight size={20} /> : <ArrowLeft size={20} />}
           {t.back}
-        </button>
+        </button> */}
 
         <div className="privacy-header">
           <Shield size={60} className="privacy-icon" />

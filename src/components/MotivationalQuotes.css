@@ -370,7 +370,7 @@
 
 [data-theme="dark"] .quote-card:hover {
   background: rgba(255, 255, 255, 0.08) !important;
-  border-color: #6366f1 !important;
+  border-color:rgb(96, 165, 250) !important;
 }
 
 [data-theme="dark"] .category-btn {

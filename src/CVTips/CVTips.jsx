@@ -180,10 +180,10 @@ const CVTips = ({ language }) => {
   return (
     <div className={`cv-tips-page ${language === 'ar' ? 'rtl' : 'ltr'}`}>
       <div className="tips-container">
-        <button className="back-btn" onClick={() => navigate('/')}>
+        {/* <button className="back-btn" onClick={() => navigate('/')}>
           {language === 'ar' ? <ArrowRight size={20} /> : <ArrowLeft size={20} />}
           {t.back}
-        </button>
+        </button> */}
 
         {/* Header */}
         <div className="tips-header">

@@ -95,6 +95,7 @@ body {
   color: var(--text-primary);
   transition: background-color 0.3s, color 0.3s;
   font-style: normal !important;
+
 }
 
 /* تحسين وضوح الحروف */
@@ -262,33 +263,34 @@ body, .cv-template, .cv-preview {
   max-width: 1200px;
   margin: 0 auto;
 }
+/* Tablet (768px - 991px) */
 @media (max-width: 991px) {
   .header {
-    padding: 1.5rem 1rem;
+    padding: 1.2rem 1rem;
   }
 
   .main-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .subtitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 }
 
 /* Mobile (576px - 767px) */
 @media (max-width: 767px) {
   .header {
-    padding: 1.2rem 0.8rem;
+    padding: 1rem 0.8rem;
   }
 
   .main-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.4rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
   }
 
   .subtitle {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     padding: 0 0.5rem;
   }
 }
@@ -296,32 +298,52 @@ body, .cv-template, .cv-preview {
 /* Small Mobile (up to 575px) */
 @media (max-width: 575px) {
   .header {
-    padding: 1rem 0.5rem;
+    padding: 0.8rem 0.5rem;
   }
 
   .main-title {
-    font-size: 1.1rem;
-    line-height: 1.4;
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
   }
 
   .subtitle {
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    padding: 0 0.3rem;
   }
 }
 
 /* Extra Small (up to 380px) */
 @media (max-width: 380px) {
   .header {
-    padding: 0.8rem 0.4rem;
+    padding: 0.6rem 0.4rem;
   }
 
   .main-title {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.3;
   }
 
   .subtitle {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    padding: 0 0.2rem;
+  }
+}
+
+/* Ultra Small (up to 320px) */
+@media (max-width: 320px) {
+  .header {
+    padding: 0.5rem 0.3rem;
+  }
+
+  .main-title {
+    font-size: 0.85rem;
+  }
+
+  .subtitle {
+    font-size: 0.7rem;
   }
 }
 
@@ -446,6 +468,44 @@ body, .cv-template, .cv-preview {
   transform: scaleX(1);
 }
 
+/* تنسيق الموبايل (الشاشات الأصغر من 768px) */
+@media (max-width: 768px) {
+  .template-card {
+    height: 420px; /* تقليل الطول الكلي */
+    padding: 1rem; /* تقليل المسافات الداخلية */
+    border-radius: 15px; /* تنعيم الحواف لتناسب حجم الموبايل */
+  }
+
+  /* تصغير حاوية الصورة */
+  .template-image-container {
+    height: 200px; /* تقليل طول عرض القالب */
+    margin-bottom: 0.8rem;
+  }
+
+  /* تصغير حجم العناوين والنصوص */
+  .template-name {
+    font-size: 1.1rem !important;
+  }
+
+  .template-description {
+    font-size: 0.85rem !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* عرض سطرين فقط عشان الكلام ميسرحش */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .template-footer {
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+
+  /* تصغير حجم الزرار */
+  .select-button {
+    padding: 0.6rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+}
 /* ==========================================
    TEMPLATE PREVIEW - معاينة القالب
    ========================================== */

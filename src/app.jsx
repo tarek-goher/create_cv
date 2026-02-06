@@ -1,24 +1,28 @@
 // ==========================================
-// MAIN APP COMPONENT - CV BUILDER
+// MAIN APP COMPONENT - CV BUILDER (CLEANED)
 // ==========================================
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
-import { Printer, Globe, Sun, Moon } from 'lucide-react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './css/style.css';
 import './css/templates-styles.css';
-import './index.css'
+import './index.css';
+
+// استيراد الكومبوننتات
+import Navbar from './layout/Navbar'; 
 import TemplateSelector from './TemplateSelector';
 import CVForm from './CVForm';
 import CVPreview from './CVPreview';
-// import PdfToWord from './wor.jsx';
-import  PdfToWord from './PdfToWord.jsx'
+import PdfToWord from './PdfToWord.jsx';
 import ContactUs from './contactUs/contactus.jsx';
 import CVTips from './CVTips/CVTips.jsx';
 import Privacy from './Privacy/Privacy.jsx';
 import Footer from './Footer/footer.jsx'; 
-import MotivationalQuotes from './components/Tips.jsx'; // ✅ استيراد المكون الجديد
+import MotivationalQuotes from './components/Tips.jsx';
+import AboutUs from './AboutUs/AboutUs.jsx';
+import InterviewQuestions from './InterviewQuestions/InterviewQuestions.jsx';
+
 // ==========================================
-// CV TEMPLATES DATA - قوالب السيرة الذاتية (ALL FREE)
+// CV TEMPLATES DATA
 // ==========================================
 const CV_TEMPLATES = {
   ar: [
@@ -154,7 +158,7 @@ const CV_TEMPLATES = {
 };
 
 // ==========================================
-// TRANSLATION STRINGS - النصوص المترجمة
+// TRANSLATION STRINGS
 // ==========================================
 const TRANSLATIONS = {
   ar: {
@@ -197,22 +201,21 @@ const TRANSLATIONS = {
 // MAIN APP COMPONENT
 // ==========================================
 function App() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  
-  // STATE MANAGEMENT - إدارة الحالة
+  // STATE MANAGEMENT
   const [language, setLanguage] = useState('en');
   const [theme, setTheme] = useState('dark');
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
   const [showConverter, setShowConverter] = useState(false);
-const [formData, setFormData] = useState({
-    fullName: 'Mahmoud Mohamed ',
+  const location = useLocation(); // للحصول على الـ path الحالي
+  
+  const [formData, setFormData] = useState({
+    fullName: 'Mahmoud Mohamed',
     jobTitle: 'Senior Full Stack Developer',
     email: 'mahmoud.dev@example.com',
     phone: '+20 100 123 4567',
     address: 'Maadi, Cairo, Egypt',
-    summary: 'Results-oriented Full Stack Developer with 5+ years of experience in building scalable web applications. Expert in React.js, Node.js, and cloud technologies. Proven track record of improving site performance by 40%.',
+    summary: 'Results-oriented Full Stack Developer with 5+ years of experience...',
     photo: null,
     photoPreview: null,
     experience: [
@@ -220,13 +223,13 @@ const [formData, setFormData] = useState({
         company: 'Tech Solutions Inc.', 
         position: 'Senior Frontend Engineer', 
         duration: 'Jan 2022 - Present', 
-        description: 'Developed complex UI components using React and Tailwind CSS. Integrated RESTful APIs and optimized state management.' 
+        description: 'Developed complex UI components...' 
       },
       { 
         company: 'Digital Creative Agency', 
         position: 'Full Stack Developer', 
         duration: 'June 2019 - Dec 2021', 
-        description: 'Built responsive websites for international clients. Reduced page load time by 50% through optimization.' 
+        description: 'Built responsive websites...' 
       }
     ],
     education: [
@@ -258,162 +261,127 @@ const [formData, setFormData] = useState({
     document.documentElement.setAttribute('data-theme', newTheme);
   };
 
-  // ==========================================
-  // TEMPLATE SELECTION HANDLER - معالج اختيار القالب
-  // ==========================================
+  // Toggle language
+  const toggleLanguage = () => {
+    setLanguage(language === 'ar' ? 'en' : 'ar');
+  };
+
+  // Template selection handler
   const handleTemplateSelect = (template) => {
     setSelectedTemplate(template);
     setCurrentStep(2);
   };
 
-  // ==========================================
-  // FORM DATA HANDLER - معالج بيانات النموذج
-  // ==========================================
+  // Form data handler
   const handleInputChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
   };
 
-  // ==========================================
-  // PRINT HANDLER - معالج الطباعة
-  // ==========================================
+  // Print handler
   const handlePrint = () => {
     window.print();
   };
 
-return (
-  <div className={`app ${language === 'ar' ? 'rtl' : 'ltr'}`}>
-    {/* ==========================================
-        NAVBAR - شريط التنقل
-        ========================================== */}
-    <nav className="navbar no-print">
-      <div className="navbar-content">
-        <div className="navbar-brand" onClick={() => setCurrentStep(1)}>
-          <span className="brand-icon">📄</span>
-          <span className="brand-text">{language === 'ar' ? 'منشئ السيرة الذاتية' : 'CV Builder'}</span>
-        </div>
-        
-        <div className="navbar-actions">
-          <button 
-            className="converter-btn"
-            onClick={() => {
-              setShowConverter(true);
-              setCurrentStep(1);
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-            </svg>
-            {language === 'ar' ? 'PDF إلى Word' : 'PDF to Word'}
-          </button>
-          {((currentStep !== 1 && !showConverter) || location.pathname !== '/') && (
-            <button className="home-btn" onClick={() => {
-              setCurrentStep(1);
-              setShowConverter(false);
-              navigate('/');
-            }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-              </svg>
-              {language === 'ar' ? 'الرئيسية' : 'Home'}
-            </button>
-          )}
-          <button className="theme-toggle" onClick={toggleTheme}>
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-          </button>
-          <button 
-            className="lang-toggle"
-            onClick={() => setLanguage(language === 'ar' ? 'en' : 'ar')}
-          >
-            <Globe size={20} />
-            {language === 'ar' ? 'EN' : 'عربي'}
-          </button>
-        </div>
-      </div>
-    </nav>
+  // Reset to home - دالة جديدة
+  const resetToHome = () => {
+    setCurrentStep(1);
+    setShowConverter(false);
+    setSelectedTemplate(null);
+  };
 
-    {/* ==========================================
-        HEADER - الهيدر
-        ========================================== */}
-    {!showConverter && (
-      <header className="header no-print">
-        <h1 className="main-title">{t.title}</h1>
-        <p className="subtitle">{t.subtitle}</p>
-        
-        {/* PROGRESS STEPS - خطوات التقدم */}
-        <div className="progress-steps">
-          <div className={`step ${currentStep >= 1 ? 'active' : ''}`}>
-            <div className="step-number">1</div>
-            <div className="step-label">{t.selectTemplate}</div>
+  // تحديد إذا كنا في الصفحة الرئيسية
+  const isMainRoute = location.pathname === '/';
+
+  return (
+    <div className={`app ${language === 'ar' ? 'rtl' : 'ltr'}`}>
+      {/* ==========================================
+          NAVBAR - كل الأزرار جواه
+          ========================================== */}
+      <Navbar 
+        language={language}
+        currentStep={currentStep}
+        setCurrentStep={setCurrentStep}
+        setShowConverter={setShowConverter}
+        theme={theme}
+        toggleTheme={toggleTheme}
+        toggleLanguage={toggleLanguage}
+        resetToHome={resetToHome}
+      />
+
+      {/* ==========================================
+          HEADER - يظهر فقط في الصفحة الرئيسية والخطوات 2 و 3
+          ========================================== */}
+      {isMainRoute && !showConverter && currentStep !== 1 && (
+        <header className="header no-print">
+          <h1 className="main-title">{t.title}</h1>
+          <p className="subtitle">{t.subtitle}</p>
+          
+          {/* PROGRESS STEPS */}
+          <div className="progress-steps">
+            <div className={`step ${currentStep >= 1 ? 'active' : ''}`}>
+              <div className="step-number">1</div>
+              <div className="step-label">{t.selectTemplate}</div>
+            </div>
+            <div className="step-line"></div>
+            <div className={`step ${currentStep >= 2 ? 'active' : ''}`}>
+              <div className="step-number">2</div>
+              <div className="step-label">{t.fillData}</div>
+            </div>
+            <div className="step-line"></div>
+            <div className={`step ${currentStep >= 3 ? 'active' : ''}`}>
+              <div className="step-number">3</div>
+              <div className="step-label">{t.preview}</div>
+            </div>
           </div>
-          <div className="step-line"></div>
-          <div className={`step ${currentStep >= 2 ? 'active' : ''}`}>
-            <div className="step-number">2</div>
-            <div className="step-label">{t.fillData}</div>
-          </div>
-          <div className="step-line"></div>
-          <div className={`step ${currentStep >= 3 ? 'active' : ''}`}>
-            <div className="step-number">3</div>
-            <div className="step-label">{t.preview}</div>
-          </div>
-        </div>
-      </header>
-    )}
+        </header>
+      )}
 
-    {/* ==========================================
-        MAIN CONTENT - المحتوى الرئيسي
-        ========================================== */}
-    <Routes>
-      <Route path="/" element={
-        <main className="main-content">
-          {/* PDF TO WORD CONVERTER */}
-          {showConverter && (
-            <PdfToWord language={language} />
-          )}
+      {/* ==========================================
+          MAIN CONTENT
+          ========================================== */}
+      <Routes>
+        <Route path="/" element={
+          <main className="main-content">
+            {showConverter && <PdfToWord language={language} />}
+            {!showConverter && currentStep === 1 && (
+              <TemplateSelector 
+                templates={templates}
+                language={language}
+                onSelect={handleTemplateSelect}
+              />
+            )}
+            {!showConverter && currentStep === 2 && (
+              <CVForm 
+                formData={formData}
+                language={language}
+                selectedTemplate={selectedTemplate}
+                onChange={handleInputChange}
+                onBack={() => setCurrentStep(1)}
+                onNext={() => setCurrentStep(3)}
+              />
+            )}
+            {!showConverter && currentStep === 3 && (
+              <CVPreview 
+                template={selectedTemplate}
+                formData={formData}
+                language={language}
+                onBack={() => setCurrentStep(2)}
+                onPrint={handlePrint}
+              />
+            )}
+          </main>
+        } />
+        <Route path='/Tips' element={<MotivationalQuotes language={language} />} />
+        <Route path="/about" element={<AboutUs language={language} />} />
+        <Route path="/interview-questions" element={<InterviewQuestions language={language} />} />
+        <Route path="/contact" element={<ContactUs language={language} />} />
+        <Route path="/cv-tips" element={<CVTips language={language} />} />
+        <Route path="/privacy" element={<Privacy language={language} />} />
+      </Routes>
 
-          {/* STEP 1: TEMPLATE SELECTION - اختيار القالب */}
-          {!showConverter && currentStep === 1 && (
-            <TemplateSelector 
-              templates={templates}
-              language={language}
-              onSelect={handleTemplateSelect}
-            />
-          )}
-
-          {/* STEP 2: FORM - النموذج */}
-          {!showConverter && currentStep === 2 && (
-            <CVForm 
-              formData={formData}
-              language={language}
-              selectedTemplate={selectedTemplate}
-              onChange={handleInputChange}
-              onBack={() => setCurrentStep(1)}
-              onNext={() => setCurrentStep(3)}
-            />
-          )}
-
-          {/* STEP 3: PREVIEW - المعاينة */}
-          {!showConverter && currentStep === 3 && (
-            <CVPreview 
-              template={selectedTemplate}
-              formData={formData}
-              language={language}
-              onBack={() => setCurrentStep(2)}
-              onPrint={handlePrint}
-            />
-          )}
-        </main>
-      } />
-      <Route path='/Tips' element={<MotivationalQuotes language={language} />} />
-      <Route path="/contact" element={<ContactUs language={language} />} />
-      <Route path="/cv-tips" element={<CVTips language={language} />} />
-      <Route path="/privacy" element={<Privacy language={language} />} />
-    </Routes>
-
-    <Footer language={language} />
-  </div>
-);
+      <Footer language={language} resetToHome={resetToHome} />
+    </div>
+  );
 }
 
 export default App;

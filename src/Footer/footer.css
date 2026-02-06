@@ -4,22 +4,68 @@
 .footer {
   background: var(--bg-secondary);
   border-top: 2px solid var(--border-color);
-  padding: 3rem 1rem 2rem;
-  margin-top: 4rem;
+  padding: 3rem 2rem 0;
+  margin-top: auto; /* يخلي الفوتر ينزل لتحت تلقائياً */
+  width: 100%;
+}
+
+/* إضافة للـ body عشان الفوتر يبقى في الآخر */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-content {
   max-width: 1400px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 2rem;
 }
 
 /* ==========================================
-   FOOTER BRAND WITH ICON
+   FOOTER SECTIONS
    ========================================== */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.footer-section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+}
+
+.rtl .footer-section-title::after {
+  left: auto;
+  right: 0;
+}
+
+/* ==========================================
+   FOOTER BRAND SECTION
+   ========================================== */
+.footer-brand-section {
+  grid-column: span 1;
+}
+
 .footer-brand {
   display: flex;
   align-items: center;
@@ -38,6 +84,7 @@
   color: white;
   box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
   animation: float 3s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 @keyframes float {
@@ -46,106 +93,205 @@
 }
 
 .brand-text-footer h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
 }
 
 .brand-text-footer p {
   font-size: 0.9rem;
-  color: var(--text-tertiary);
-  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.5;
 }
 
 /* ==========================================
    FOOTER LINKS
    ========================================== */
-.footer-links {
+.footer-links-group {
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .footer-link {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.7rem;
   background: none;
-  border: 2px solid transparent;
-  color: var(--accent-primary);
-  font-size: 1rem;
-  font-weight: 600;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 0.7rem 1.3rem;
-  border-radius: 10px;
-}
-
-.footer-link:hover {
-  background: rgba(59, 130, 246, 0.1);
-  border-color: var(--accent-primary);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
-}
-
-/* تلوين خاص لزر النصائح */
-.tips-link {
-  color: #f59e0b;
-}
-
-.tips-link:hover {
-  background: rgba(245, 158, 11, 0.1);
-  border-color: #f59e0b;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
-}
-
-/* ==========================================
-   FOOTER COPYRIGHT
-   ========================================== */
-.footer-copy {
-  color: var(--text-tertiary);
-  font-size: 0.9rem;
-  text-align: center;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border-color);
+  padding: 0.5rem 0;
+  text-align: left;
   width: 100%;
 }
 
+.rtl .footer-link {
+  text-align: right;
+}
+
+.footer-link svg {
+  color: var(--accent-primary);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--accent-primary);
+  transform: translateX(5px);
+}
+
+.rtl .footer-link:hover {
+  transform: translateX(-5px);
+}
+
+.footer-link:hover svg {
+  transform: scale(1.2);
+}
+
 /* ==========================================
-   RESPONSIVE
+   FOOTER BOTTOM (COPYRIGHT)
    ========================================== */
-@media (max-width: 768px) {
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem 2rem;
+  margin: 0; /* إزالة أي margin */
+}
+
+.footer-copy {
+  max-width: 1400px;
+  margin: 0 auto;
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+/* Large Desktop (min-width: 1400px) */
+@media (min-width: 1400px) {
+  .footer-content {
+    padding: 0 2rem 2rem;
+  }
+}
+
+/* Desktop (992px to 1199px) */
+@media (max-width: 1199px) {
+  .footer-content {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Tablet (768px to 991px) */
+@media (max-width: 991px) {
   .footer {
-    padding: 2rem 1rem 1.5rem;
+    padding: 2.5rem 1.5rem 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-brand-section {
+    grid-column: span 2;
+  }
+
+  .footer-brand {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-section-title {
+    font-size: 1.05rem;
+  }
+}
+
+/* Mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .footer {
+    padding: 2rem 1rem 0;
+    margin-top: 3rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .footer-brand-section {
+    grid-column: span 1;
   }
 
   .footer-brand {
     flex-direction: column;
-    text-align: center;
+    gap: 0.8rem;
   }
 
   .brand-text-footer h3 {
     font-size: 1.3rem;
   }
 
-  .footer-links {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+  .brand-text-footer p {
+    font-size: 0.88rem;
+  }
+
+  .footer-section-title {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .footer-section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .rtl .footer-section-title::after {
+    right: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .footer-links-group {
+    align-items: center;
   }
 
   .footer-link {
-    width: 100%;
     justify-content: center;
+  }
+
+  .footer-bottom {
+    padding: 1.3rem 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.88rem;
   }
 }
 
+/* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
+  .footer {
+    padding: 1.5rem 1rem 0;
+    margin-top: 2rem;
+  }
+
+  .footer-content {
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
   .footer-logo {
     width: 50px;
     height: 50px;
@@ -159,6 +305,143 @@
   .brand-text-footer h3 {
     font-size: 1.2rem;
   }
+
+  .brand-text-footer p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .footer-section-title {
+    font-size: 0.95rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .footer-link {
+    font-size: 0.88rem;
+    padding: 0.4rem 0;
+    gap: 0.5rem;
+  }
+
+  .footer-link svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer-copy {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .footer-bottom {
+    padding: 1.2rem 1rem;
+  }
+}
+
+/* Extra Small (max-width: 380px) */
+@media (max-width: 380px) {
+  .footer {
+    padding: 1.2rem 0.8rem 0;
+  }
+
+  .footer-content {
+    gap: 1.2rem;
+  }
+
+  .footer-logo {
+    width: 45px;
+    height: 45px;
+  }
+
+  .footer-logo svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .brand-text-footer h3 {
+    font-size: 1.1rem;
+  }
+
+  .brand-text-footer p {
+    font-size: 0.82rem;
+  }
+
+  .footer-section-title {
+    font-size: 0.9rem;
+  }
+
+  .footer-link {
+    font-size: 0.85rem;
+    padding: 0.35rem 0;
+  }
+
+  .footer-copy {
+    font-size: 0.82rem;
+  }
+
+  .footer-bottom {
+    padding: 1rem 0.8rem;
+  }
+}
+
+/* Very Small Screens (max-width: 320px) */
+@media (max-width: 320px) {
+  .footer {
+    padding: 1rem 0.5rem 0;
+  }
+
+  .footer-content {
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-text-footer h3 {
+    font-size: 1rem;
+  }
+
+  .footer-link {
+    font-size: 0.8rem;
+  }
+}
+
+/* ==========================================
+   LANDSCAPE MODE للموبايل
+   ========================================== */
+@media (max-height: 500px) and (orientation: landscape) {
+  .footer {
+    padding: 1.5rem 1rem 0;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .footer-brand-section {
+    grid-column: span 1;
+  }
+
+  .footer-brand {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .footer-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-section-title {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom {
+    padding: 1rem;
+  }
 }
 
 /* ==========================================
@@ -168,4 +451,18 @@
   .footer {
     display: none !important;
   }
+}
+
+/* ==========================================
+   إزالة المسافات الزيادة
+   ========================================== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
 }
