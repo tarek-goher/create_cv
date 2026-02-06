@@ -158,7 +158,38 @@ function AboutUs({ language }) {
           ))}
         </div>
       </section>
+{/* // في ملف AboutUs.jsx
+// ضيف القسم ده قبل Team Section */}
 
+{/* Security & Privacy Section */}
+<section className="security-section">
+  <div className="security-content">
+    <h2 className="section-title">
+      {language === 'ar' ? 'الخصوصية والأمان' : 'Privacy & Security'}
+    </h2>
+    <p>
+      {language === 'ar' 
+        ? 'في منشئ السيرة الذاتية الاحترافية، نضع أمان بياناتك في المقام الأول. جميع المعلومات التي تدخلها على منصتنا تتم معالجتها محلياً في متصفحك، مما يضمن بقاء تفاصيلك الشخصية خاصة ولا يتم تخزينها على خوادمنا. هذا الالتزام بالخصوصية يجعل أداتنا واحدة من أكثر أدوات إنشاء السيرة الذاتية المجانية الموثوقة المتاحة عبر الإنترنت.'
+        : 'At Professional CV Builder, we prioritize the security of your data. All information entered on our platform is processed locally in your browser, ensuring that your personal details remain private and are not stored on our servers. This commitment to privacy makes our tool one of the most trusted free CV makers available online.'
+      }
+    </p>
+  </div>
+</section>
+
+{/* ATS Compatibility Section */}
+<section className="ats-section">
+  <div className="ats-content">
+    <h2 className="section-title">
+      {language === 'ar' ? 'التوافق مع أنظمة التوظيف الآلية (ATS)' : 'ATS Compatibility'}
+    </h2>
+    <p>
+      {language === 'ar'
+        ? 'تم تصميم قوالبنا بدقة لتكون متوافقة مع أنظمة تتبع المتقدمين (ATS)، والتي تستخدمها العديد من الشركات لفحص السير الذاتية. باستخدام تخطيطاتنا الاحترافية، فإنك تزيد من فرصك في اجتياز هذه المرشحات الآلية والحصول على سيرتك الذاتية في أيدي مسؤولي التوظيف البشريين. نحن نفهم أهمية المرور عبر هذه الأنظمة، لذلك نضمن أن كل قالب يتبع أفضل الممارسات في التنسيق والبنية.'
+        : 'Our templates are meticulously designed to be compatible with Applicant Tracking Systems (ATS), which many companies use to screen resumes. By using our professional layouts, you increase your chances of passing these automated filters and getting your CV into the hands of human recruiters. We understand the importance of passing through these systems, so we ensure every template follows best practices in formatting and structure.'
+      }
+    </p>
+  </div>
+</section>
       {/* Team Section */}
       <section className="team-section">
         <div className="team-content">

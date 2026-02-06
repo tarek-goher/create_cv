@@ -256,3 +256,27 @@
     grid-template-columns: 1fr;
   }
 }
+/* Security & ATS Sections */
+.security-section,
+.ats-section {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+.security-content,
+.ats-content {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 15px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.security-content p,
+.ats-content p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: var(--text-secondary);
+  text-align: justify;
+}

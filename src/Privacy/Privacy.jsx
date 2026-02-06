@@ -17,8 +17,8 @@ const Privacy = ({ language }) => {
     dataUsage: 'استخدام البيانات',
     dataUsageText: 'البيانات المدخلة تُستخدم فقط لإنشاء السيرة الذاتية وتحميلها على جهازك. لا نشارك أو نبيع أو نكشف بياناتك لأي طرف ثالث تحت أي ظرف من الظروف.',
     
-    cookies: 'ملفات تعريف الارتباط',
-    cookiesText: 'نستخدم ملفات تعريف الارتباط الأساسية فقط لتحسين تجربة المستخدم، مثل حفظ اللغة المفضلة والثيم (الوضع الفاتح أو الداكن). هذه الملفات لا تحتوي على أي معلومات شخصية.',
+    cookies: 'ملفات تعريف الارتباط (Cookies)',
+    cookiesText: 'نستخدم ملفات تعريف الارتباط الأساسية لتحسين تجربة المستخدم، مثل حفظ اللغة المفضلة والثيم. قد نستخدم أيضاً خدمات طرف ثالث مثل Google AdSense لعرض الإعلانات، والتي قد تستخدم ملفات تعريف الارتباط لتقديم إعلانات مخصصة. يمكنك التحكم في ملفات تعريف الارتباط من خلال إعدادات المتصفح. لمزيد من المعلومات: https://policies.google.com/technologies/partner-sites',
     
     security: 'الأمان',
     securityText: 'جميع العمليات تتم محلياً على جهازك. لا يتم إرسال أي بيانات شخصية إلى خوادمنا أو أي خوادم خارجية. السيرة الذاتية يتم إنشاؤها بالكامل في متصفحك.',
@@ -37,7 +37,7 @@ const Privacy = ({ language }) => {
     dataUsageText: 'The data you enter is only used to generate your CV and download it to your device. We do not share, sell, or disclose your data to any third party under any circumstances.',
     
     cookies: 'Cookies',
-    cookiesText: 'We only use essential cookies to improve user experience, such as saving your preferred language and theme (light or dark mode). These cookies do not contain any personal information.',
+    cookiesText: 'We use essential cookies to improve user experience, such as saving your preferred language and theme. We may also use third-party services such as Google AdSense to display advertisements, which may use cookies to serve personalized ads. You can control cookies through your browser settings. For more information: https://policies.google.com/technologies/partner-sites',
     
     security: 'Security',
     securityText: 'All operations are performed locally on your device. No personal data is sent to our servers or any external servers. Your CV is generated entirely in your browser.',
