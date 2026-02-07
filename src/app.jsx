@@ -20,7 +20,7 @@ import Footer from './Footer/footer.jsx';
 import MotivationalQuotes from './components/Tips.jsx';
 import AboutUs from './AboutUs/AboutUs.jsx';
 import InterviewQuestions from './InterviewQuestions/InterviewQuestions.jsx';
-
+import CVWritingTipsSection from './components/CVWritingTipsSection';
 // ==========================================
 // CV TEMPLATES DATA
 // ==========================================
@@ -371,12 +371,13 @@ function App() {
             )}
           </main>
         } />
-        <Route path='/Tips' element={<MotivationalQuotes language={language} />} />
-        <Route path="/about" element={<AboutUs language={language} />} />
-        <Route path="/interview-questions" element={<InterviewQuestions language={language} />} />
-        <Route path="/contact" element={<ContactUs language={language} />} />
-        <Route path="/cv-tips" element={<CVTips language={language} />} />
-        <Route path="/privacy" element={<Privacy language={language} />} />
+       <Route path='/Tips' element={<MotivationalQuotes language={language} />} />
+<Route path='/cv-writing-tips' element={<CVWritingTipsSection language={language} />} />
+<Route path="/about" element={<AboutUs language={language} />} />
+<Route path="/interview-questions" element={<InterviewQuestions language={language} />} />
+<Route path="/contact" element={<ContactUs language={language} />} />
+<Route path="/cv-tips" element={<CVTips language={language} />} />
+<Route path="/privacy" element={<Privacy language={language} />} />
       </Routes>
 
       <Footer language={language} resetToHome={resetToHome} />

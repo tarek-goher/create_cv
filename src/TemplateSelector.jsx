@@ -4,6 +4,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { ChevronRight, ChevronDown } from 'lucide-react';
 import MotivationalQuotes from './components/Tips.jsx';
+import CVWritingTipsSection from './components/CVWritingTipsSection';
 
 // ==========================================
 // TEMPLATE CARD COMPONENT - Memoized
@@ -321,6 +322,7 @@ const TemplateSelector = ({ templates, language, onSelect }) => {
           />
         ))}
       </div>
+      <CVWritingTipsSection language={language} />
     </>
   );
 };

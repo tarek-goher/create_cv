@@ -1,0 +1,279 @@
+/* ==========================================
+   CV WRITING TIPS SECTION - نصائح كتابة السيرة الذاتية
+   ========================================== */
+
+.cv-tips-section {
+  padding: 4rem 2rem;
+  background: var(--bg-primary);
+  margin-top: 3rem;
+}
+
+.tips-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tips-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInUp 0.6s ease;
+}
+
+.tips-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tips-header p {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   TIPS GRID - شبكة النصائح
+   ========================================== */
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.tip-card {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 2px solid var(--border-color);
+  transition: all 0.4s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tip-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent-primary);
+}
+
+.tip-card:hover::before {
+  transform: scaleX(1);
+}
+
+.tip-icon {
+  color: var(--accent-primary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.tip-card h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.tip-card p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* ==========================================
+   DID YOU KNOW SECTION - هل تعلم؟
+   ========================================== */
+
+.did-you-know {
+  background: var(--accent-gradient);
+  color: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.did-you-know::before {
+  content: '💡';
+  position: absolute;
+  font-size: 15rem;
+  opacity: 0.1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.did-you-know h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.did-you-know p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.95;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================
+   RTL SUPPORT - دعم العربية
+   ========================================== */
+
+.rtl .tip-card {
+  text-align: center;
+}
+
+/* ==========================================
+   ANIMATIONS - الحركات
+   ========================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - الاستجابة للشاشات
+   ========================================== */
+
+/* Tablet */
+@media (max-width: 991px) {
+  .cv-tips-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .tips-header h2 {
+    font-size: 2rem;
+  }
+
+  .tips-header p {
+    font-size: 1.1rem;
+  }
+
+  .tip-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .did-you-know h3 {
+    font-size: 1.7rem;
+  }
+
+  .did-you-know p {
+    font-size: 1.05rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .cv-tips-section {
+    padding: 2.5rem 1rem;
+    margin-top: 2rem;
+  }
+
+  .tips-header {
+    margin-bottom: 2rem;
+  }
+
+  .tips-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .tips-header p {
+    font-size: 1rem;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .tip-card {
+    padding: 1.5rem;
+  }
+
+  .tip-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .tip-card p {
+    font-size: 0.95rem;
+  }
+
+  .did-you-know {
+    padding: 2rem 1.5rem;
+  }
+
+  .did-you-know h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .did-you-know p {
+    font-size: 1rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .cv-tips-section {
+    padding: 2rem 0.8rem;
+  }
+
+  .tips-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .tip-card {
+    padding: 1.2rem;
+  }
+
+  .did-you-know {
+    padding: 1.5rem 1rem;
+  }
+
+  .did-you-know::before {
+    font-size: 10rem;
+  }
+}
